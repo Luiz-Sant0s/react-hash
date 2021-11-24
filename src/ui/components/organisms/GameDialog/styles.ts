@@ -87,10 +87,19 @@ export const BtnStart = styled.button`
     cursor: wait;
   }
 
+  &:hover {
+    border: "1px solid #00000055";
+    transform: scale(1.2);
+  }
+
   &:disabled {
     opacity: 0.4;
     cursor: not-allowed;
+    border: "1px solid #00000055";
+    transform: scale(1.2);
   }
+
+ 
 `;
 
 export const BtnVsComputer = styled(BtnStart)<PlayerWinnerStyle>`

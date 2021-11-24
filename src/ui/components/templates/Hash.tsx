@@ -20,9 +20,10 @@ const Hash = () => {
   const fillTheAreaWithThePlayer = (index: number) => {
 
     if (board[index] !== "") return null;
+    if (game.winner) return null;
 
     setBoard(
-      board.map((playerArea, itemIndex) => (itemIndex === index ? game.player : playerArea))
+      board.map((playerArea, area) => (area === index ? game.player : playerArea))
     );
 
     return setGame({ ...game, player: game?.player === "X" ? "O" : "X" });
@@ -41,7 +42,7 @@ const Hash = () => {
   };
 
   const validDraw = () => {
-    if (board?.every((item) => item !== ""))
+    if (board?.every((playerArea) => playerArea !== ""))
       return setGame({ ...game, winner: "draw", statusGame: "GameOver" });
   };
 
@@ -67,8 +68,8 @@ const Hash = () => {
 
         setBoard(newBoard);
 
-        return setGame({ ...game, player: "X", });
-      } else return null
+        return setGame({ ...game, player: "X" });
+      }
     }
   }, [ board ]);
 
