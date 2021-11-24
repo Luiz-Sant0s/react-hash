@@ -24,7 +24,7 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, goHome, select
 
         {game?.statusGame === "GameOver" && (
           <>
-            <S.TitleModal>Game Over</S.TitleModal>
+            <S.TitleModal>End of the game</S.TitleModal>
 
             {game?.winner === "draw" ? (
               <S.MessageWinner >

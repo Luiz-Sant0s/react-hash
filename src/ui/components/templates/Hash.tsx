@@ -70,11 +70,11 @@ const Hash = () => {
         return setGame({ ...game, player: "X", });
       } else return null
     }
-  }, [game?.winner, board]);
+  }, [ board ]);
 
   useEffect(() => {
     validateIfTheGameIsOver();
-  }, [board, game.winner, game.player, validateIfTheGameIsOver]);
+  }, [ validateIfTheGameIsOver ]);
 
   const startGame = () => {
     setBoard(Array(9).fill(""));

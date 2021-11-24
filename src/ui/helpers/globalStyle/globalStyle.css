@@ -109,6 +109,10 @@ section {
   display: block;
 }
 
+html {
+  height: 100vh;
+}
+
 body {
   display: grid;
   align-items: center;
