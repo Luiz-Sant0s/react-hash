@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import * as S from './styles'
 import Title from "../atoms/Title";
-import GoToGitHub from '../atoms/ GoToGitHub';
+import GoToGitHub from '../atoms/GoToGitHub';
 import Board from '../molecules/Board';
 import GameDialog from '../organisms/GameDialog';
 import { endOfTheGame } from '../../helpers/constantes';
