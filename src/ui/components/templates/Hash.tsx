@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect, useCallback } from "react";
-import { endOfTheGame } from '../../helpers/constantes';
 import * as S from './styles'
 import Title from "../atoms/Title";
-import GameDialog from '../organisms/GameDialog';
+import GoToGitHub from '../atoms/ GoToGitHub';
 import Board from '../molecules/Board';
+import GameDialog from '../organisms/GameDialog';
+import { endOfTheGame } from '../../helpers/constantes';
 import { TypesGame } from '../../helpers/types';
 
 const Hash = () => {
@@ -97,6 +98,7 @@ const Hash = () => {
         selectComputer={() => setGame({ ...game, adversary: "computer" })}
         selectMultiPlayers={() => setGame({ ...game, adversary: "multiPlayers" })} />
 
+      <GoToGitHub />
     </S.GameContianer>
   );
 }

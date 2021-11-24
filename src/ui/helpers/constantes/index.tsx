@@ -19,4 +19,5 @@ export const ImageGlobal = {
     Start: `${process.env.PUBLIC_URL}/img/png/start.png`,
     Replay: `${process.env.PUBLIC_URL}/img/png/replay.png`,
     GoHome: `${process.env.PUBLIC_URL}/img/png/goHome.png`,
+    GoToGitHub: `${process.env.PUBLIC_URL}/img/png/go-to-GitHub.png`,
 }
