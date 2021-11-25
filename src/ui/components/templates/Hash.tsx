@@ -34,16 +34,16 @@ const Hash = () => {
     endOfTheGame(board).forEach((playerAreas) => {
 
       if (playerAreas.every((playerArea) => playerArea === "O"))
-        return setGame({ ...game, winner: "O", statusGame: "GameOver" });
+        return setGame({ ...game, winner: "O", statusGame: "GameOver"});
 
       if (playerAreas.every((playerArea) => playerArea === "X"))
-        return setGame({ ...game, winner: "X", statusGame: "GameOver" });
+        return setGame({ ...game, winner: "X", statusGame: "GameOver"});
     });
   };
 
   const validDraw = () => {
     if (board?.every((playerArea) => playerArea !== ""))
-      return setGame({ ...game, winner: "draw", statusGame: "GameOver" });
+      return setGame({ ...game, winner: "draw", statusGame: "GameOver"});
   };
 
   const validateIfTheGameIsOver = useCallback(() => {
