@@ -32,7 +32,7 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
   useEffect(() => {
 
     if (urlParameter) {
-      if (urlParameter.length !== 9 || !(/^[O-Xo-x ]+$/i.test(urlParameter))) {
+      if (urlParameter.length !== 9 || (/[^o x]/ig.test(urlParameter))) {
         alert("Something wrong is not right! hehe");
         setGame({ ...game, player: "X", winner: null });
         return setInitialBoard(boardDefault);
