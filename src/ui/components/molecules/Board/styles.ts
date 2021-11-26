@@ -65,7 +65,7 @@ export const PlayerArea = styled.li<typesPlayerAresStyle>`
   }};
 
   ${(props) => {
-    if (props.hover === "")
+    if (props.hover === " ")
       return css`
         :hover {
           border: 4px solid;

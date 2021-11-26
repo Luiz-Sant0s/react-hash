@@ -10,7 +10,7 @@ export const Background = styled.div<OpenDialogTypeStyle>`
     left: 0;
     width: 100%;
     height: 100%;
-    content: "";
+    content: " ";
     position: fixed;
     background: rgba(0, 0, 0, 0.5);
 
@@ -104,9 +104,9 @@ export const BtnStart = styled.button`
 
 export const BtnVsComputer = styled(BtnStart)<PlayerWinnerStyle>`
   border: ${(props) =>
-    props.adversary === "computer" ? "1px solid #00000055" : ""};
+    props.adversary === "computer" ? "1px solid #00000055" : " "};
   transform: scale(${(props) => (props.adversary === "computer" ? 1.2 : 1)});
-  opacity: ${(props) => (props.adversary === "computer" ? 0.3 : "")};
+  opacity: ${(props) => (props.adversary === "computer" ? 0.3 : " ")};
 
   transition: all 0.2s ease-in-out;
   height: 80px;
@@ -116,11 +116,11 @@ export const BtnVsComputer = styled(BtnStart)<PlayerWinnerStyle>`
 
 export const BtnMultiPlayers = styled(BtnStart)<PlayerWinnerStyle>`
   border: ${(props) =>
-    props.adversary === "multiPlayers" ? " 1px solid #00000055" : ""};
+    props.adversary === "multiPlayers" ? " 1px solid #00000055" : " "};
   transform: scale(
     ${(props) => (props.adversary === "multiPlayers" ? 1.2 : 1)}
   );
-  opacity: ${(props) => (props.adversary === "multiPlayers" ? 0.3 : "")};
+  opacity: ${(props) => (props.adversary === "multiPlayers" ? 0.3 : " ")};
 
   transition: all 0.2s ease-in-out;
   height: 80px;

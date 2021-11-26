@@ -21,3 +21,5 @@ export const ImageGlobal = {
     GoHome: `${process.env.PUBLIC_URL}/img/png/goHome.png`,
     GoToGitHub: `${process.env.PUBLIC_URL}/img/png/go-to-GitHub.png`,
 }
+
+export const boardDefault = "         ";

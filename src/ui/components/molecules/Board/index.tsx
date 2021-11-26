@@ -2,9 +2,9 @@ import React from 'react';
 import * as S from './styles';
 import { TypesBoard } from '../../../helpers/types'
 
-const Board: React.FC<TypesBoard> = ({ board, onClick }) => (
+const Board: React.FC<TypesBoard> = ({ boardCurrent, onClick }) => (
   <S.BoardStyle>
-    {board?.map((player: string, index: number) => (
+    {boardCurrent?.map((player: string, index: number) => (
       <S.PlayerArea
         key={index}
         border={index}

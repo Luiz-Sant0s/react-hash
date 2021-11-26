@@ -4,7 +4,6 @@ import { typesGameDialog } from '../../../helpers/types'
 
 const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, goHome, selectComputer, selectMultiPlayers }) => {
 
-
   return (
     <S.Background open={game?.winner || game?.statusGame} >
       <S.ContainerGameDialog>

@@ -1,103 +1,152 @@
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import * as S from './styles'
+import { endOfTheGame, boardDefault } from '../../helpers/constantes';
+import { TypesGame, TypesHash } from '../../helpers/types';
 import Title from "../atoms/Title";
 import GoToGitHub from '../atoms/GoToGitHub';
 import Board from '../molecules/Board';
 import GameDialog from '../organisms/GameDialog';
-import { endOfTheGame } from '../../helpers/constantes';
-import { TypesGame } from '../../helpers/types';
 
-const Hash = () => {
-  const [board, setBoard] = useState(Array(9).fill(""));
+const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
+
+  const turningBoardIntoArray = Array(1).fill(board.split(""));
+  const [boardCurrent, setBoardCurrent] = useState(turningBoardIntoArray[0]);
   const [game, setGame] = useState<TypesGame>({
     player: "X",
     statusGame: "Home",
     adversary: null,
     winner: null,
   });
+  const historyNavigate = useNavigate();
+
+  const LocationSearch = () => {
+    const { search } = useLocation();
+    return useMemo(() => new URLSearchParams(search), [search]);
+  };
+
+  const queryUrlParameter = LocationSearch();
+  const urlParameter = queryUrlParameter.get("board");
+
+  useEffect(() => {
+
+    if (urlParameter) {
+      if (urlParameter.length !== 9 || !(/^[O-Xo-x ]+$/i.test(urlParameter))) {
+        alert("Something wrong is not right! hehe");
+        setGame({ ...game, player: "X", winner: null });
+        return setInitialBoard(boardDefault);
+      };
+
+      setInitialBoard(urlParameter?.toUpperCase());
+    };
+
+    if (!queryUrlParameter.get("board")) {
+      setInitialBoard(boardDefault);
+    };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [urlParameter]);
 
   const fillTheAreaWithThePlayer = (index: number) => {
-
-    if (board[index] !== "") return null;
+    if (boardCurrent[index] !== " ") return null;
     if (game.winner) return null;
 
-    setBoard(
-      board.map((playerArea, area) => (area === index ? game.player : playerArea))
+    setBoardCurrent(
+      boardCurrent.map((playerArea: string, area: number) => (area === index ? game.player : playerArea))
     );
 
     return setGame({ ...game, player: game?.player === "X" ? "O" : "X" });
   };
 
   const validWinner = () => {
-
-    endOfTheGame(board).forEach((playerAreas) => {
-
+    endOfTheGame(boardCurrent).forEach((playerAreas) => {
       if (playerAreas.every((playerArea) => playerArea === "O"))
-        return setGame({ ...game, winner: "O", statusGame: "GameOver"});
+        return setGame({ ...game, winner: "O", statusGame: "GameOver" });
 
       if (playerAreas.every((playerArea) => playerArea === "X"))
-        return setGame({ ...game, winner: "X", statusGame: "GameOver"});
+        return setGame({ ...game, winner: "X", statusGame: "GameOver" });
     });
   };
 
   const validDraw = () => {
-    if (board?.every((playerArea) => playerArea !== ""))
-      return setGame({ ...game, winner: "draw", statusGame: "GameOver"});
+    if (boardCurrent?.every((playerArea: string) => playerArea !== " "))
+      return setGame({ ...game, winner: "draw", statusGame: "GameOver" });
   };
-
-  const validateIfTheGameIsOver = useCallback(() => {
+  
+  const computerMovementAndEndOfTheGame = useCallback(() => {
     validDraw();
     validWinner();
 
     if (game?.adversary === "computer") {
-      if (game?.player === "O") {
+      if (game.player === "O") {
         let emptySeatsOnBoard = [];
-        let idx = board.indexOf("");
+        let idx = boardCurrent.indexOf(" ");
 
         while (idx !== -1) {
           emptySeatsOnBoard.push(idx);
-          idx = board.indexOf("", idx + 1);
-        }
+          idx = boardCurrent.indexOf(" ", idx + 1);
+        };
 
         const computerRandomPosition = Math.floor(
           Math.random() * emptySeatsOnBoard?.length
         );
-        let newBoard = board.slice();
+
+        let newBoard = boardCurrent.slice();
         newBoard[emptySeatsOnBoard[computerRandomPosition]] = "O";
 
-        setBoard(newBoard);
+        setBoardCurrent(newBoard);
 
         return setGame({ ...game, player: "X" });
-      }
-    }
-  }, [ board ]);
+      };
+    };
+
+    historyNavigate({
+      pathname: window.location.pathname,
+      search: `?board=${encodeURIComponent(boardCurrent.join(""))}`,
+    });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [boardCurrent]);
 
   useEffect(() => {
-    validateIfTheGameIsOver();
-  }, [ validateIfTheGameIsOver ]);
+
+    if (!game.statusGame) {
+      computerMovementAndEndOfTheGame();
+    };
+
+    if (game.winner) {
+      historyNavigate({
+        pathname: window.location.pathname,
+        search: ``,
+      });
+    };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [game.statusGame, computerMovementAndEndOfTheGame]);
 
   const startGame = () => {
-    setBoard(Array(9).fill(""));
+    setBoardCurrent(turningBoardIntoArray[0]);
     setGame({ ...game, player: "X", winner: null, statusGame: null });
   };
 
   const goHome = () => {
     setGame({ ...game, statusGame: "Home", adversary: null });
-  }
+  };
 
   return (
     <S.GameContianer>
       <Title nameGame="Hash Game" />
 
-      <Board board={board} onClick={fillTheAreaWithThePlayer} />
+      <Board boardCurrent={boardCurrent} onClick={fillTheAreaWithThePlayer} />
 
       <GameDialog
         game={game}
         startGame={startGame}
         goHome={goHome}
         selectComputer={() => setGame({ ...game, adversary: "computer" })}
-        selectMultiPlayers={() => setGame({ ...game, adversary: "multiPlayers" })} />
+        selectMultiPlayers={() => setGame({ ...game, adversary: "multiPlayers" })}
+         />
 
       <GoToGitHub />
     </S.GameContianer>

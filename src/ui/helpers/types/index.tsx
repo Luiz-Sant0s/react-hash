@@ -1,9 +1,14 @@
+export interface TypesHash {
+  board: string;
+  setInitialBoard: (arg0: string) => void;
+}
+
 export interface TypesTitle {
   nameGame: string;
 };
 
 export interface TypesBoard {
-  board: Array<string>;
+  boardCurrent: Array<string>;
   onClick: (arg0: number) => void;
 };
 
