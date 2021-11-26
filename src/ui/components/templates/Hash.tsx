@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import * as S from './styles'
-import { endOfTheGame, boardDefault } from '../../helpers/constantes';
+import { endOfTheGame, boardDefault, onlyGameCharacters, gameCharacters } from '../../helpers/constantes';
 import { TypesGame, TypesHash } from '../../helpers/types';
 import Title from "../atoms/Title";
 import GoToGitHub from '../atoms/GoToGitHub';
@@ -21,22 +21,49 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
   });
   const historyNavigate = useNavigate();
 
+  const clearHistoryNavigate = () => {
+    historyNavigate({
+      pathname: window.location.pathname,
+      search: ``,
+    });
+  };
+
   const LocationSearch = () => {
     const { search } = useLocation();
     return useMemo(() => new URLSearchParams(search), [search]);
   };
 
   const queryUrlParameter = LocationSearch();
-  const urlParameter = queryUrlParameter.get("board");
+  const urlParameter: any = queryUrlParameter.get("board");
+  const howManyCharactersX = !urlParameter?.match(gameCharacters.X)?.length ? 0 : urlParameter?.match(gameCharacters.X)?.length;
+  const howManyCharactersO = !urlParameter?.match(gameCharacters.O)?.length ? 0 : urlParameter?.match(gameCharacters.O)?.length;
 
   useEffect(() => {
-
     if (urlParameter) {
-      if (urlParameter.length !== 9 || (/[^o x]/ig.test(urlParameter))) {
-        alert("Something wrong is not right! hehe");
+
+      if (urlParameter.length !== 9) {
+        alert("Something wrong is not right! hehe, you typed a board with more than 9 characters");
         setGame({ ...game, player: "X", winner: null });
+        clearHistoryNavigate();
         return setInitialBoard(boardDefault);
       };
+
+      if (onlyGameCharacters.test(urlParameter)) {
+        alert("Something wrong is not right! hehe, board only accepts the following characters X space O");
+        setGame({ ...game, player: "X", winner: null });
+        clearHistoryNavigate();
+        return setInitialBoard(boardDefault);
+      };
+
+      if (howManyCharactersX - howManyCharactersO >= 2 || howManyCharactersO - howManyCharactersX >= 2) {
+        alert("Something wrong is not right! hehe, invalid board a player cannot have more than 1 play advantage of his opponent");
+        setGame({ ...game, player: "X", winner: null });
+        clearHistoryNavigate();
+        return setInitialBoard(boardDefault);
+      };
+
+      if (howManyCharactersX - howManyCharactersO === 1) setGame({ ...game, player: "O", winner: null });
+      if (howManyCharactersO - howManyCharactersX === 1) setGame({ ...game, player: "X", winner: null });
 
       setInitialBoard(urlParameter?.toUpperCase());
     };
@@ -73,7 +100,7 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
     if (boardCurrent?.every((playerArea: string) => playerArea !== " "))
       return setGame({ ...game, winner: "draw", statusGame: "GameOver" });
   };
-  
+
   const computerMovementAndEndOfTheGame = useCallback(() => {
     validDraw();
     validWinner();
@@ -107,20 +134,12 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [boardCurrent]);
+  }, [boardCurrent, game.player]);
 
   useEffect(() => {
 
-    if (!game.statusGame) {
-      computerMovementAndEndOfTheGame();
-    };
-
-    if (game.winner) {
-      historyNavigate({
-        pathname: window.location.pathname,
-        search: ``,
-      });
-    };
+    if (!game.statusGame) return computerMovementAndEndOfTheGame();
+    if (game.winner) return clearHistoryNavigate();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [game.statusGame, computerMovementAndEndOfTheGame]);
@@ -146,7 +165,7 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
         goHome={goHome}
         selectComputer={() => setGame({ ...game, adversary: "computer" })}
         selectMultiPlayers={() => setGame({ ...game, adversary: "multiPlayers" })}
-         />
+      />
 
       <GoToGitHub />
     </S.GameContianer>

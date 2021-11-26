@@ -1,5 +1,14 @@
 
-export const endOfTheGame = (board: any[]) => {
+export const boardDefault = "         ";
+
+export const onlyGameCharacters = /[^o x]/ig;
+
+export const gameCharacters = {
+    X: /x/ig,
+    O: /o/ig
+};
+
+export const endOfTheGame = (board: Array<string | []>) => {
     const endGame = [
         [board[0], board[1], board[2]],
         [board[0], board[3], board[6]],
@@ -11,7 +20,7 @@ export const endOfTheGame = (board: any[]) => {
         [board[6], board[7], board[8]],
     ];
     return endGame
-}
+};
 
 export const ImageGlobal = {
     VsComputer: `${process.env.PUBLIC_URL}/img/png/vsComputer.png`,
@@ -20,6 +29,4 @@ export const ImageGlobal = {
     Replay: `${process.env.PUBLIC_URL}/img/png/replay.png`,
     GoHome: `${process.env.PUBLIC_URL}/img/png/goHome.png`,
     GoToGitHub: `${process.env.PUBLIC_URL}/img/png/go-to-GitHub.png`,
-}
-
-export const boardDefault = "         ";
+};
