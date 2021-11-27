@@ -73,12 +73,13 @@ nav,
 output,
 ruby,
 section,
+strong,
 summary,
 time,
 mark,
 audio,
 video {
-  font-family: Roboto, sans-serif;
+  font-family: "font-family you want to use";
   margin: 0;
   padding: 0;
   border: 0;
@@ -87,12 +88,9 @@ video {
   vertical-align: baseline;
 }
 
-strong {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  vertical-align: baseline;
+button {
+  font-family: "font-family you want to use";
+  font: inherit;
 }
 
 article,
@@ -116,7 +114,7 @@ html {
 body {
   display: grid;
   align-items: center;
-  background-color: #f8f8ff;
+  background-color: #f8f8ff !important;
   height: 100vh;
 }
 

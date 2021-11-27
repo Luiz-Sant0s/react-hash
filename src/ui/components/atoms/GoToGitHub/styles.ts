@@ -21,11 +21,11 @@ export const GoToGitHubStyle = styled.button`
   bottom: 50px;
     right: 15px;
   cursor: pointer;
-  font-family: Segoe UI italic;
+  /* font-family: Segoe UI italic; */
   font-style: normal;
   font-weight: bold;
   color: #555;
-  font-size: 17px;
+  font-size: 11px;
 
   :hover {
     background-color: #b1b6bb;
@@ -59,5 +59,5 @@ export const TextGitHub = styled.p`
   position: relative;
   right: 10px;
   font-weight: bold;
-  top: 8px;
+  top: 10px;
 `;

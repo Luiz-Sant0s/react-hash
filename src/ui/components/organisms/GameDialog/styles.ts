@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ImageGlobal } from "../../../helpers/constantes";
 import { OpenDialogTypeStyle, PlayerWinnerStyle } from "../../../helpers/types";
+import "nes.css/css/nes.min.css";
 
 export const Background = styled.div<OpenDialogTypeStyle>`
   display: ${(props) => (props.open ? "flex" : "none")};
@@ -26,12 +26,13 @@ export const ContainerGameDialog = styled.dialog`
   align-items: center;
   text-align: center;
   position: fixed;
-  top: 17vh;
+  top: 12vh;
   box-sizing: border-box;
   z-index: 100;
   margin: 0 auto;
   background-color: #ffffff;
-  padding: 30px 10px;
+  padding: 20px 10px 0px 10px;
+  max-width: 360px;
 
   @media (max-width: 500px) {
     width: 90%;
@@ -39,43 +40,56 @@ export const ContainerGameDialog = styled.dialog`
 `;
 
 export const TitleModal = styled.h2`
-  margin: 1rem;
-  font-size: 3rem;
+  margin: 5px;
+  font-size: 25px;
   font-weight: bold;
   color: #00000077;
 `;
 
 export const DescriptionModal = styled(TitleModal)`
-  font-size: 1.6rem;
-  color: #00000070;
+  font-size: 15px;
+  color: #00000060;
+  padding: 0 15px 10px 15px;
 `;
 
 export const MessageWinner = styled(TitleModal)`
   opacity: 0.7;
-
-  margin-bottom: 3rem;
+  margin-bottom: 15px;
 `;
 
 export const DescriptionEndGame = styled.p<PlayerWinnerStyle>`
   color: ${(props) => (props.winner === "X" ? "red" : "blue")};
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 20 px;
 `;
 
-export const ContainerBtnsGameOver = styled.div`
+export const ContainerBtns = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 25px;
+`;
+
+export const IconButton = styled.img`
+  margin: 2px auto;
+  width: auto;
+  height: auto;
 `;
 
 export const BtnStart = styled.button`
   cursor: pointer;
-  height: 77px;
-  width: 77px;
-  background-image: url(${ImageGlobal.Start});
-  background-repeat: no-repeat;
-  background-position: center;
-  border: none;
-  background-color: transparent;
-  box-shadow: none;
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+  min-width: 102px;
+  align-items: center;
+  font-size: 12px;
+  justify-content: center;
 
   @media (max-width: 1024px) {
     font-size: 0.8rem;
@@ -98,8 +112,6 @@ export const BtnStart = styled.button`
     border: "1px solid #00000055";
     transform: scale(1.2);
   }
-
- 
 `;
 
 export const BtnVsComputer = styled(BtnStart)<PlayerWinnerStyle>`
@@ -107,11 +119,8 @@ export const BtnVsComputer = styled(BtnStart)<PlayerWinnerStyle>`
     props.adversary === "computer" ? "1px solid #00000055" : " "};
   transform: scale(${(props) => (props.adversary === "computer" ? 1.2 : 1)});
   opacity: ${(props) => (props.adversary === "computer" ? 0.3 : " ")};
-
   transition: all 0.2s ease-in-out;
-  height: 80px;
-  width: 85px;
-  background-image: url(${ImageGlobal.VsComputer});
+  font-size: 8px;
 `;
 
 export const BtnMultiPlayers = styled(BtnStart)<PlayerWinnerStyle>`
@@ -121,21 +130,9 @@ export const BtnMultiPlayers = styled(BtnStart)<PlayerWinnerStyle>`
     ${(props) => (props.adversary === "multiPlayers" ? 1.2 : 1)}
   );
   opacity: ${(props) => (props.adversary === "multiPlayers" ? 0.3 : " ")};
-
   transition: all 0.2s ease-in-out;
-  height: 80px;
-  width: 85px;
-  background-image: url(${ImageGlobal.MultiPlayers});
+  font-size: 8px;
 `;
 
-export const BtnReplay = styled(BtnStart)`
-  height: 71px;
-  width: 72px;
-  background-image: url(${ImageGlobal.Replay});
-`;
-
-export const BtnGoHome = styled(BtnStart)`
-  height: 71px;
-  width: 72px;
-  background-image: url(${ImageGlobal.GoHome});
-`;
+export const BtnReplay = styled(BtnStart)``;
+export const BtnGoHome = styled(BtnStart)``;

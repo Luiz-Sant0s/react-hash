@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './ui/helpers/globalStyle/globalStyle.css';
+import "nes.css/css/nes.min.css";
 import { boardDefault } from "./ui/helpers/constantes";
 import Hash from './ui/components/templates/Hash';
 

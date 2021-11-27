@@ -139,10 +139,13 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
   useEffect(() => {
 
     if (!game.statusGame) return computerMovementAndEndOfTheGame();
-    if (game.winner) return clearHistoryNavigate();
+    if (game.winner) {
+      computerMovementAndEndOfTheGame();
+      return clearHistoryNavigate();
+    };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [game.statusGame, computerMovementAndEndOfTheGame]);
+  }, [game.statusGame, computerMovementAndEndOfTheGame, urlParameter]);
 
   const startGame = () => {
     setBoardCurrent(turningBoardIntoArray[0]);
@@ -150,7 +153,7 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
   };
 
   const goHome = () => {
-    setGame({ ...game, statusGame: "Home", adversary: null });
+    setGame({ ...game, statusGame: "Home", adversary: null, winner: null, });
   };
 
   return (
