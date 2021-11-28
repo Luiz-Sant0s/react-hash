@@ -39,11 +39,15 @@ export const ContainerGameDialog = styled.dialog`
   }
 `;
 
-export const TitleModal = styled.h2`
+export const TitleModal = styled.p`
   margin: 5px;
   font-size: 25px;
   font-weight: bold;
-  color: #00000077;
+  color: #00000080;
+
+  .nes-octocat {
+    opacity: 0.7;
+  }
 `;
 
 export const DescriptionModal = styled(TitleModal)`
@@ -55,6 +59,11 @@ export const DescriptionModal = styled(TitleModal)`
 export const MessageWinner = styled(TitleModal)`
   opacity: 0.7;
   margin-bottom: 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-direction: column;
 `;
 
 export const DescriptionEndGame = styled.p<PlayerWinnerStyle>`
@@ -63,7 +72,7 @@ export const DescriptionEndGame = styled.p<PlayerWinnerStyle>`
   align-items: center;
   text-align: center;
   justify-content: center;
-  margin: 20 px;
+  margin: 20px;
 `;
 
 export const ContainerBtns = styled.div`
@@ -77,6 +86,11 @@ export const IconButton = styled.img`
   margin: 2px auto;
   width: auto;
   height: auto;
+`;
+
+export const GapIcons = styled.div`
+  gap: 20px;
+  display: flex;
 `;
 
 export const BtnStart = styled.button`

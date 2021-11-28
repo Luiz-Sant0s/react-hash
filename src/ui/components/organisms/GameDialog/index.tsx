@@ -10,7 +10,7 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, goHome, select
       <S.ContainerGameDialog>
         {game?.statusGame === "Home" && (
           <>
-            <S.TitleModal>Hello let's play?</S.TitleModal>
+            <S.TitleModal>Hello!<i className="nes-octocat animate"></i> let's play?</S.TitleModal>
             <S.DescriptionModal> choose game mode and press start </S.DescriptionModal>
 
             <S.ContainerBtns>
@@ -40,8 +40,11 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, goHome, select
 
             {game?.winner === "draw" || game?.winner === null ? (
               <S.MessageWinner >
+                <S.GapIcons>
+                <i className="nes-mario"></i>
+                <i className="nes-charmander"></i>
+                </S.GapIcons>
                 Draw!
-                <i className="nes-octocat animate"></i>
               </S.MessageWinner>
             ) : (
               <S.MessageWinner >
