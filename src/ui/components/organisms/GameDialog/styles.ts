@@ -105,6 +105,7 @@ export const BtnStart = styled.button`
   font-size: 12px;
   /* justify-content: center; */
   justify-content: space-around;
+  gap: 5px;
 
   @media (max-width: 1024px) {
     font-size: 0.8rem;
