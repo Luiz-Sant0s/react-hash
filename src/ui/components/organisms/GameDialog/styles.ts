@@ -103,7 +103,6 @@ export const BtnStart = styled.button`
   min-width: 102px;
   align-items: center;
   font-size: 12px;
-  /* justify-content: center; */
   justify-content: space-around;
   gap: 5px;
 
