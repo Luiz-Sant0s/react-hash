@@ -60,4 +60,7 @@ export const TextGitHub = styled.p`
   right: 10px;
   font-weight: bold;
   top: 10px;
+
+
+  line-height: 15px; // prod
 `;
