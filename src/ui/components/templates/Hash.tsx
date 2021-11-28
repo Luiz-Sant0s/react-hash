@@ -108,17 +108,16 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
     if (game?.adversary === "computer") {
       if (game.player === "O") {
         let emptySeatsOnBoard = [];
-        let idx = boardCurrent.indexOf(" ");
+        let emptyArea = boardCurrent.indexOf(" ");
 
-        while (idx !== -1) {
-          emptySeatsOnBoard.push(idx);
-          idx = boardCurrent.indexOf(" ", idx + 1);
+        while (emptyArea !== -1) {
+          emptySeatsOnBoard.push(emptyArea);
+          emptyArea = boardCurrent.indexOf(" ", emptyArea + 1);
         };
 
         const computerRandomPosition = Math.floor(
           Math.random() * emptySeatsOnBoard?.length
         );
-
         let newBoard = boardCurrent.slice();
         newBoard[emptySeatsOnBoard[computerRandomPosition]] = "O";
 
