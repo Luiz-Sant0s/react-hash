@@ -14,22 +14,22 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, goHome, select
             <S.DescriptionModal> choose game mode and press start </S.DescriptionModal>
 
             <S.ContainerBtns>
-              <S.BtnVsComputer className="nes-btn" aria-label="Button selectComputer" type="button" onClick={selectComputer} adversary={game.adversary}>
+              <S.BtnVsComputer /* className="nes-btn" */ aria-label="Button selectComputer" type="button" onClick={selectComputer} adversary={game.adversary}>
                 <S.IconButton src={ImageGlobal.VsComputerNotDescription} alt="IconselectComputer" />
                 VS COMPUTER
               </S.BtnVsComputer>
-              <S.BtnMultiPlayers className="nes-btn" aria-label="Button selectMultiPlayers" type="button" onClick={selectMultiPlayers} adversary={game.adversary}>
+              <S.BtnMultiPlayers /* className="nes-btn" */ aria-label="Button selectMultiPlayers" type="button" onClick={selectMultiPlayers} adversary={game.adversary}>
                 <S.IconButton src={ImageGlobal.MultiPlayersNotDescription} alt="IconselectComputer" />
                 2 PLAYERS
               </S.BtnMultiPlayers>
             </S.ContainerBtns>
 
             <S.ContainerBtns>
-            <S.BtnStart className="nes-btn" aria-label="Button StartGame" disabled={!game.adversary} type="button" onClick={startGame}>
-              {/* <S.IconButton src={ImageGlobal.StartNotDescription} alt="Icon StartGame" /> */}
-              <i className="snes-jp-logo"></i>
-              START
-            </S.BtnStart>
+              <S.BtnStart /* className="nes-btn" */ aria-label="Button StartGame" disabled={!game.adversary} type="button" onClick={startGame}>
+                {/* <S.IconButton src={ImageGlobal.StartNotDescription} alt="Icon StartGame" /> */}
+                <i className="snes-jp-logo"></i>
+                START
+              </S.BtnStart>
             </S.ContainerBtns>
           </>)}
 
@@ -41,30 +41,36 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, goHome, select
             {game?.winner === "draw" || game?.winner === null ? (
               <S.MessageWinner >
                 <S.GapIcons>
-                <i className="nes-mario"></i>
-                <i className="nes-charmander"></i>
+                  <S.DrawPlayerAnimation>
+                    <i className="nes-mario"></i>
+                  </S.DrawPlayerAnimation>
+                  Draw!
                 </S.GapIcons>
-                Draw!
+
               </S.MessageWinner>
             ) : (
               <S.MessageWinner >
                 <S.DescriptionEndGame winner={game?.winner}>
-                  <i className="nes-icon trophy is-large"></i>
-                  {game?.winner} <i className="nes-icon coin is-large">
-                  </i>
+                  <S.WinnerTrophyAnimation>
+                    <i className="nes-icon trophy is-large"></i>
+                  </S.WinnerTrophyAnimation>
+                  {game?.winner}
+                  <S.WinnerCoinAnimation>
+                    <i className="nes-icon coin is-large"></i>
+                  </S.WinnerCoinAnimation>
                 </S.DescriptionEndGame>
                 is the winner!
               </S.MessageWinner>
             )}
             <S.ContainerBtns >
 
-              <S.BtnReplay className="nes-btn" aria-label="Button Replay" type="button" onClick={startGame}>
+              <S.BtnReplay /* className="nes-btn" */ aria-label="Button Replay" type="button" onClick={startGame}>
                 {/* <S.IconButton src={ImageGlobal.StartNotDescription} alt="Icon StartGame" /> */}
                 <i className="snes-jp-logo"></i>
                 REPLAY
               </S.BtnReplay>
 
-              <S.BtnGoHome className="nes-btn" aria-label="Button GoHome" type="button" onClick={goHome} >
+              <S.BtnGoHome /* className="nes-btn" */ aria-label="Button GoHome" type="button" onClick={goHome} >
                 <S.IconButton src={ImageGlobal.GoHomeNotDescription} alt="Icon StartGame" />
                 GO HOME
               </S.BtnGoHome>

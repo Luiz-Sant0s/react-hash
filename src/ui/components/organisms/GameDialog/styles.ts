@@ -1,6 +1,24 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { OpenDialogTypeStyle, PlayerWinnerStyle } from "../../../helpers/types";
 import "nes.css/css/nes.min.css";
+
+const animationDraw = keyframes`
+ 40% {  transform: translateX(-35px) scale(1.1);}
+ 100% {  transform: scaleX(-1) rotate(0);} 
+`;
+
+const animationWinnerCoin = keyframes`
+ 0% { transform: scaleX(-1) rotate(0); }
+ 40% {  transform: translateX(0) scale(0.9);  }
+ 100% {  transform: scaleX(-1); } 
+`;
+
+const animationWinnerTrophy = keyframes`
+ 0% { transform: scale(1.1); }
+ 40% {  transform:  scale(0.8);  }
+ 100% { transform: scale(1.1); }
+
+`;
 
 export const Background = styled.div<OpenDialogTypeStyle>`
   display: ${(props) => (props.open ? "flex" : "none")};
@@ -66,13 +84,38 @@ export const MessageWinner = styled(TitleModal)`
   flex-direction: column;
 `;
 
+export const DrawPlayerAnimation = styled.div`
+  animation-name: ${animationDraw};
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform: scaleX(-1);
+  transform: rotate(0);
+`;
+
+export const WinnerCoinAnimation = styled.div`
+  animation-name: ${animationWinnerCoin};
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  transform: scaleX(1);
+  transform: rotate(0);
+`;
+
+export const WinnerTrophyAnimation = styled.div`
+  animation-name: ${animationWinnerTrophy};
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  transform: scaleX(1);
+  transform: rotate(0);
+`;
+
 export const DescriptionEndGame = styled.p<PlayerWinnerStyle>`
   color: ${(props) => (props.winner === "X" ? "red" : "blue")};
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: center;
-  margin: 20px;
+  margin-top: 20px;
+  font-size: 35px;
 `;
 
 export const ContainerBtns = styled.div`
@@ -89,8 +132,9 @@ export const IconButton = styled.img`
 `;
 
 export const GapIcons = styled.div`
-  gap: 20px;
+  gap: 6px;
   display: flex;
+  align-items: center;
 `;
 
 export const BtnStart = styled.button`
@@ -105,6 +149,9 @@ export const BtnStart = styled.button`
   font-size: 12px;
   justify-content: space-around;
   gap: 5px;
+  background-color: transparent;
+  min-width: 112px;
+  box-shadow: 4px 8px 9px 0px #00000070;
 
   @media (max-width: 1024px) {
     font-size: 0.8rem;
