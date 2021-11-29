@@ -228,7 +228,7 @@ export const BtnMultiPlayers = styled(BtnStart)<PlayerWinnerStyle>`
 `;
 
 export const BtnReplay = styled(BtnStart)`
-  /* animation-name: none; */
+  animation-name: none;
 `;
 
 export const BtnGoHome = styled(BtnStart)`
