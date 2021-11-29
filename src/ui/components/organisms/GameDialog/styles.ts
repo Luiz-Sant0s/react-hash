@@ -6,7 +6,7 @@ import {
   BtnStartTypesStyle
 } from "../../../helpers/types";
 import {
-  StartGame,
+  animationStartGame,
   animationDraw,
   animationWinnerCoin,
   animationWinnerTrophy,  
@@ -196,7 +196,7 @@ export const BtnStart = styled.button<BtnStartTypesStyle>`
   ${(props) => {
     if (!props.disabledOn)
       return css`
-        animation-name: ${StartGame};
+        animation-name: ${animationStartGame};
         animation-duration: 1.5s;
         animation-iteration-count: infinite;
       `;

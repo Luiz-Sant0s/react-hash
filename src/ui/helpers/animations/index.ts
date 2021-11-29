@@ -1,6 +1,6 @@
 import { keyframes } from "styled-components";
 
-export const StartGame = keyframes`
+export const animationStartGame = keyframes`
 0% {  transform: scale(1.2) rotate(-7deg);}
  40% {  transform: rotate(7deg) ;}
  100% {  transform: rotate(-7deg);} 
