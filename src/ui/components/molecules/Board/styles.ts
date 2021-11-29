@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { typesPlayerAresStyle } from '../../../helpers/types'
+import { typesPlayerAresStyle } from "../../../helpers/types";
 
 export const BoardStyle = styled.ul`
   display: grid;
@@ -73,6 +73,15 @@ export const PlayerArea = styled.li<typesPlayerAresStyle>`
           transition: all 0.2s ease-in-out;
           transform: scale(1.1);
           background-color: rgba(248, 248, 255);
+        }
+      `;
+  }};
+
+  ${(props) => {
+    if (props.hover !== " ")
+      return css`
+        :hover {
+          cursor: not-allowed;
         }
       `;
   }};
