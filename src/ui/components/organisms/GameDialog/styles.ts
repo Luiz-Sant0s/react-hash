@@ -1,14 +1,17 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import {
   OpenDialogTypeStyle,
   PlayerWinnerStyle,
   VisibleHiddenBoard,
+  BtnStartTypesStyle
 } from "../../../helpers/types";
 import {
+  StartGame,
   animationDraw,
   animationWinnerCoin,
-  animationWinnerTrophy,
+  animationWinnerTrophy,  
 } from "../../../helpers/animations";
+
 
 export const Background = styled.div<OpenDialogTypeStyle>`
   display: ${(props) => (props.open ? "flex" : "none")};
@@ -150,7 +153,7 @@ export const GapIcons = styled.div`
   align-items: center;
 `;
 
-export const BtnStart = styled.button`
+export const BtnStart = styled.button<BtnStartTypesStyle>`
   height: auto;
   width: auto;
   display: flex;
@@ -189,6 +192,15 @@ export const BtnStart = styled.button`
     border: "1px solid #00000055";
     transform: scale(1.2);
   }
+
+  ${(props) => {
+    if (!props.disabledOn)
+      return css`
+        animation-name: ${StartGame};
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+      `;
+  }}
 `;
 
 export const BtnVsComputer = styled(BtnStart)<PlayerWinnerStyle>`
@@ -198,6 +210,8 @@ export const BtnVsComputer = styled(BtnStart)<PlayerWinnerStyle>`
   opacity: ${(props) => (props.adversary === "computer" ? 0.3 : " ")};
   transition: all 0.2s ease-in-out;
   font-size: 8px;
+
+  animation-name: none;
 `;
 
 export const BtnMultiPlayers = styled(BtnStart)<PlayerWinnerStyle>`
@@ -209,7 +223,14 @@ export const BtnMultiPlayers = styled(BtnStart)<PlayerWinnerStyle>`
   opacity: ${(props) => (props.adversary === "multiPlayers" ? 0.3 : " ")};
   transition: all 0.2s ease-in-out;
   font-size: 8px;
+
+  animation-name: none;
 `;
 
-export const BtnReplay = styled(BtnStart)``;
-export const BtnGoHome = styled(BtnStart)``;
+export const BtnReplay = styled(BtnStart)`
+  /* animation-name: none; */
+`;
+
+export const BtnGoHome = styled(BtnStart)`
+  animation-name: none;
+`;

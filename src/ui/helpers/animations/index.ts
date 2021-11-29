@@ -1,5 +1,11 @@
 import { keyframes } from "styled-components";
 
+export const StartGame = keyframes`
+0% {  transform: scale(1.2) rotate(-7deg);}
+ 40% {  transform: rotate(7deg) ;}
+ 100% {  transform: rotate(-7deg);} 
+`;
+
 export const animationDraw = keyframes`
  40% {  transform: translateX(-35px) scale(1.1);}
  100% {  transform: scaleX(-1) rotate(0);} 

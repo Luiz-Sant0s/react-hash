@@ -36,6 +36,10 @@ export interface OpenDialogTypeStyle {
   open: boolean | null | string;
 }
 
+export interface BtnStartTypesStyle {
+  disabledOn?: string | null | boolean;
+}
+
 export interface VisibleHiddenBoard {
   visible: string;
 }
