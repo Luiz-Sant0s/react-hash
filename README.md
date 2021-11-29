@@ -1,7 +1,7 @@
 <h1 align="center"> React Hash :video_game: :hash:</h1><br/>
 
 
-<a align="center" href="j0se-luiz.github.io/react-hash/" target="_blank"> :video_game:  <img  width="20%" src="public/favicon.ico" /> :video_game: :video_game: Hash Game, or Tic Tac Toe, this game click here see instructions below or continue to download the game
+<a align="center" href="j0se-luiz.github.io/react-hash/" target="_blank"> :video_game:  <img  width="20%" src="public/logo.png" /> :video_game: :video_game: Hash Game, or Tic Tac Toe, this game click here see instructions below or continue to download the game
 </a>
 
 <br/>
@@ -50,7 +50,7 @@
 
 <br/>
 
-## these were the technologies / methodology used to build this tic-tac-toe.
+## these were the technologies/methodology/framework used to build this tic-tac-toe/hash.
 <br/>
 <a href="https://atomicdesign.bradfrost.com/chapter-2/"> <img src="https://atomicdesign.bradfrost.com/images/content/atomic-design-abstract-concrete.png" width="100" height="50">
 </a>
