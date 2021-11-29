@@ -36,6 +36,10 @@ export interface OpenDialogTypeStyle {
   open: boolean | null | string;
 }
 
+export interface VisibleHiddenBoard {
+  visible: string;
+}
+
 export interface PlayerWinnerStyle {
   winner?: string | null;
   adversary?: string | null;

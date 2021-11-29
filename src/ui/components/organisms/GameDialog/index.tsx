@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
 import { typesGameDialog } from '../../../helpers/types';
 import { ImageGlobal } from "../../../helpers/constantes";
 
 const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, goHome, selectComputer, selectMultiPlayers }) => {
+  const [viewBoard, setViewBoard] = useState("visible")
 
   return (
     <S.Background open={game?.winner || game?.statusGame} >
-      <S.ContainerGameDialog>
+
+      {viewBoard === "visible" && game?.statusGame === "GameOver" && <S.BtnVisibleHidden onClick={() => setViewBoard("hidden")} aria-label="Button View Board" type="button">View Board </S.BtnVisibleHidden>}
+
+      {viewBoard === "hidden" && game?.statusGame === "GameOver" && <S.BtnVisibleHidden onClick={() => setViewBoard("visible")} aria-label="Button  Winner Screen">{game?.winner === "draw" || !game.winner ? "Draw" : "Winner"} Screen</S.BtnVisibleHidden>}
+
+      <S.ContainerGameDialog visible={viewBoard}>
         {game?.statusGame === "Home" && (
           <>
             <S.TitleModal>Hello!<i className="nes-octocat animate"></i> let's play?</S.TitleModal>
@@ -35,8 +41,7 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, goHome, select
 
         {game?.statusGame === "GameOver" && (
           <>
-            <S.TitleModal>End of the game</S.TitleModal>
-
+            <S.TitleModal>End of Game</S.TitleModal>
             {game?.winner === "draw" || game?.winner === null ? (
               <S.MessageWinner >
                 <S.GapIcons>
@@ -45,7 +50,7 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, goHome, select
                   </S.DrawPlayerAnimation>
                   Draw!
                 </S.GapIcons>
-
+                match was draw!
               </S.MessageWinner>
             ) : (
               <S.MessageWinner >

@@ -1,6 +1,14 @@
 import styled from "styled-components";
-import { OpenDialogTypeStyle, PlayerWinnerStyle } from "../../../helpers/types";
-import { animationDraw, animationWinnerCoin, animationWinnerTrophy} from "../../../helpers/animations";
+import {
+  OpenDialogTypeStyle,
+  PlayerWinnerStyle,
+  VisibleHiddenBoard,
+} from "../../../helpers/types";
+import {
+  animationDraw,
+  animationWinnerCoin,
+  animationWinnerTrophy,
+} from "../../../helpers/animations";
 
 export const Background = styled.div<OpenDialogTypeStyle>`
   display: ${(props) => (props.open ? "flex" : "none")};
@@ -18,7 +26,27 @@ export const Background = styled.div<OpenDialogTypeStyle>`
   }
 `;
 
-export const ContainerGameDialog = styled.dialog`
+export const BtnVisibleHidden = styled.button`
+  z-index: 101;
+  position: fixed;
+  top: 8vh;
+  font-weight: bold;
+  color: #00000090;
+  box-shadow: 4px 8px 9px 0px #00000090;
+  border: solid 2.5px #000000;
+  font-size: 13px;
+  padding: 5px;
+  background-color: #ffffff;
+
+  &:hover {
+    border: "1px solid #00000055";
+    transform: scale(1.2) rotate(-10deg);
+  }
+`;
+
+export const ContainerGameDialog = styled.dialog<VisibleHiddenBoard>`
+  visibility: ${(props) =>
+    props.visible === "visible" ? "visible" : "hidden"};
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -34,9 +62,11 @@ export const ContainerGameDialog = styled.dialog`
   padding: 20px 10px 0px 10px;
   max-width: 360px;
   box-shadow: 3px 4px 14px 5px #00000080;
+  min-width: 360px;
 
   @media (max-width: 500px) {
     width: 90%;
+    min-width: auto;
   }
 `;
 
@@ -121,7 +151,6 @@ export const GapIcons = styled.div`
 `;
 
 export const BtnStart = styled.button`
-  cursor: pointer;
   height: auto;
   width: auto;
   display: flex;
@@ -135,6 +164,8 @@ export const BtnStart = styled.button`
   background-color: transparent;
   min-width: 112px;
   box-shadow: 4px 8px 9px 0px #00000070;
+  font-weight: bold;
+  color: #00000095;
 
   @media (max-width: 1024px) {
     font-size: 0.8rem;

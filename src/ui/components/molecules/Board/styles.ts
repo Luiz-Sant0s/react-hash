@@ -23,8 +23,6 @@ export const PlayerArea = styled.li<typesPlayerAresStyle>`
   color: #00000060;
   border: 3px solid;
 
-  cursor: pointer;
-
   ${(props) => {
     if (props.border === 0)
       return css`
