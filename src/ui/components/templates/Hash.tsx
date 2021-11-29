@@ -157,7 +157,7 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
 
   return (
     <>
-      <S.PLayerTurn>player turn <S.SpanTurn>{game.player}</S.SpanTurn></S.PLayerTurn>
+      {!game?.statusGame && <S.PLayerTurn>player turn <S.SpanTurn>{game.player}</S.SpanTurn></S.PLayerTurn>}
       <S.GameContianer>
         <Title nameGame="Hash Game" />
 

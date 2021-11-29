@@ -29,7 +29,7 @@ export const Background = styled.div<OpenDialogTypeStyle>`
 export const BtnVisibleHidden = styled.button`
   z-index: 101;
   position: fixed;
-  top: 8vh;
+  top: calc(50vh - 240px);
   font-weight: bold;
   color: #00000090;
   box-shadow: 4px 8px 9px 0px #00000090;
@@ -40,7 +40,7 @@ export const BtnVisibleHidden = styled.button`
 
   &:hover {
     border: "1px solid #00000055";
-    transform: scale(1.2) rotate(-10deg);
+    transform: scale(1.3) rotate(-10deg);
   }
 `;
 
@@ -50,22 +50,22 @@ export const ContainerGameDialog = styled.dialog<VisibleHiddenBoard>`
   display: flex;
   flex-direction: column;
   align-content: center;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   position: fixed;
-  top: 12vh;
-  box-sizing: border-box;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 100;
   margin: 0 auto;
   background-color: #ffffff;
   padding: 20px 10px 0px 10px;
-  max-width: 360px;
   box-shadow: 3px 4px 14px 5px #00000080;
-  min-width: 360px;
+  width: 360px;
+  min-height: 440px;
 
   @media (max-width: 500px) {
-    width: 90%;
+    width: 95%;
     min-width: auto;
   }
 `;
@@ -172,6 +172,7 @@ export const BtnStart = styled.button`
     border-width: 3px;
     padding: 4px 8px;
   }
+
   &:active {
     opacity: 0.2;
     cursor: wait;
