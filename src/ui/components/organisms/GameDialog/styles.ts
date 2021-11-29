@@ -1,24 +1,6 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { OpenDialogTypeStyle, PlayerWinnerStyle } from "../../../helpers/types";
-import "nes.css/css/nes.min.css";
-
-const animationDraw = keyframes`
- 40% {  transform: translateX(-35px) scale(1.1);}
- 100% {  transform: scaleX(-1) rotate(0);} 
-`;
-
-const animationWinnerCoin = keyframes`
- 0% { transform: scaleX(-1) rotate(0); }
- 40% {  transform: translateX(0) scale(0.9);  }
- 100% {  transform: scaleX(-1); } 
-`;
-
-const animationWinnerTrophy = keyframes`
- 0% { transform: scale(1.1); }
- 40% {  transform:  scale(0.8);  }
- 100% { transform: scale(1.1); }
-
-`;
+import { animationDraw, animationWinnerCoin, animationWinnerTrophy} from "../../../helpers/animations";
 
 export const Background = styled.div<OpenDialogTypeStyle>`
   display: ${(props) => (props.open ? "flex" : "none")};

@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const RotateIconGit = keyframes`
  0% { transform: rotate(40deg) }
@@ -19,7 +18,7 @@ export const GoToGitHubStyle = styled.button`
   width: 65px;
   position: absolute;
   bottom: 50px;
-    right: 15px;
+  right: 15px;
   cursor: pointer;
   /* font-family: Segoe UI italic; */
   font-style: normal;
@@ -61,6 +60,5 @@ export const TextGitHub = styled.p`
   font-weight: bold;
   top: 10px;
 
-
-  line-height: 15px; // prod
+  line-height: 15px;
 `;
