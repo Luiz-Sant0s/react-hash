@@ -1,4 +1,4 @@
-<h1 align="center"> Hash Game React :video_game: :hash:</h1><br/>
+<h1 align="center"> React Hash :video_game: :hash:</h1><br/>
 
 
 <a align="center" href="j0se-luiz.github.io/react-hash/" target="_blank"> :video_game:  <img  width="20%" src="public/favicon.ico" /> :video_game: :video_game: Hash Game, or Tic Tac Toe, this game click here see instructions below or continue to download the game
@@ -24,10 +24,10 @@
 <p align="center">select the game mode, if it is against another player or against the computer and <strong> click on start, click on where the move will be. </strong></p>
 
 <section align="center">
-<img  width="25%" src="public/img/png/1-mobile.png" />
-<img  width="25%" src="public/img/png/2-mobile.png" />
-<img  width="25%" src="public/img/png/3-mobile.png" />
-<img  width="25%" src="public/img/png/4-mobile.png" />
+<img  width="23%" src="public/img/png/1-mobile.png" />
+<img  width="23%" src="public/img/png/2-mobile.png" />
+<img  width="23%" src="public/img/png/3-mobile.png" />
+<img  width="23%" src="public/img/png/4-mobile.png" />
 
 ![gif mobile Hash Game](public/img/gif/hash-mobile.gif)
 
@@ -39,12 +39,12 @@
 <p align="center">select the game mode, if it is against another player or against the computer and click on start, <strong> use the mouse to choose where the move will be. </strong></p>
 
 <section align="center">
-<img  width="25%" src="public/img/png/1-desktop.png" />
-<img  width="25%" src="public/img/png/2-desktop.png" />
-<img  width="25%" src="public/img/png/3-desktop.png" />
-<img  width="25%" src="public/img/png/4-desktop.png" />
+<img  width="23%" src="public/img/png/1-desktop.png" />
+<img  width="23%" src="public/img/png/2-desktop.png" />
+<img  width="23%" src="public/img/png/3-desktop.png" />
+<img  width="23%" src="public/img/png/4-desktop.png" />
 
-![gif desktop Hash Game](public/img/gif/hash-mobile.gif)
+![gif desktop Hash Game](public/img/gif/hash-desktop.gif)
 
 </section>
 
