@@ -9,6 +9,8 @@ export const GameContianer = styled.section`
   background-color: #ffffff;
   padding: 15px;
   max-width: 340px;
+  box-shadow: 3px 4px 14px 5px #00000065;
+  
 
   @media (max-width: 400px) {
     width: 95%;

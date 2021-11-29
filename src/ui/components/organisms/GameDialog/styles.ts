@@ -33,6 +33,7 @@ export const ContainerGameDialog = styled.dialog`
   background-color: #ffffff;
   padding: 20px 10px 0px 10px;
   max-width: 360px;
+  box-shadow: 3px 4px 14px 5px #00000080;
 
   @media (max-width: 500px) {
     width: 90%;
