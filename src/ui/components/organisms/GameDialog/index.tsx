@@ -26,7 +26,6 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, goHome, select
 
             <S.ContainerBtns>
               <S.BtnStart /* className="nes-btn" */ aria-label="Button StartGame" disabled={!game.adversary} type="button" onClick={startGame}>
-                {/* <S.IconButton src={ImageGlobal.StartNotDescription} alt="Icon StartGame" /> */}
                 <i className="snes-jp-logo"></i>
                 START
               </S.BtnStart>
@@ -65,7 +64,6 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, goHome, select
             <S.ContainerBtns >
 
               <S.BtnReplay /* className="nes-btn" */ aria-label="Button Replay" type="button" onClick={startGame}>
-                {/* <S.IconButton src={ImageGlobal.StartNotDescription} alt="Icon StartGame" /> */}
                 <i className="snes-jp-logo"></i>
                 REPLAY
               </S.BtnReplay>

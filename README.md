@@ -1,3 +1,59 @@
+<h1 align="center"> Hash Game React :video_game: :hash:</h1><br/>
+
+
+<a align="center" href="j0se-luiz.github.io/react-hash/" target="_blank"> :video_game:  <img  width="20%" src="public/favicon.ico" /> :video_game: :video_game: Hash Game, or Tic Tac Toe, this game click here see instructions below or continue to download the game
+</a>
+
+<br/>
+
+## **Tic-tac-toe** or **HASH** zeros Xs and Os is a paper-and-pencil game for two players who take turns marking spaces in a three-by-three grid with an X or a . The player who manages to place three of his marks in a horizontal, vertical or diagonal line is the winner. It is a resolved game, with a forced draw assuming the best play of both players. [see more about the subject](https://en.wikipedia.org/wiki/Tic-tac-toe#Strategy)
+
+<br>
+
+
+<p align="center">Lets go to what matters ...</p>
+<br/>
+
+<h2 align="center"><strong> Instructions and controls</strong></h2>
+
+<br/>
+
+<P align="center"><strong> MOBILE </strong></P>
+
+
+<p align="center">select the game mode, if it is against another player or against the computer and <strong> click on start, click on where the move will be. </strong></p>
+
+<section align="center">
+<img  width="25%" src="public/img/png/1-mobile.png" />
+<img  width="25%" src="public/img/png/2-mobile.png" />
+<img  width="25%" src="public/img/png/3-mobile.png" />
+<img  width="25%" src="public/img/png/4-mobile.png" />
+
+![gif mobile Hash Game](public/img/gif/hash-mobile.gif)
+
+</section>
+
+<P align="center"><strong> DESKTOP </strong></P>
+
+
+<p align="center">select the game mode, if it is against another player or against the computer and click on start, <strong> use the mouse to choose where the move will be. </strong></p>
+
+<section align="center">
+<img  width="25%" src="public/img/png/1-desktop.png" />
+<img  width="25%" src="public/img/png/2-desktop.png" />
+<img  width="25%" src="public/img/png/3-desktop.png" />
+<img  width="25%" src="public/img/png/4-desktop.png" />
+
+![gif desktop Hash Game](public/img/gif/hash-mobile.gif)
+
+</section>
+
+<br/>
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
