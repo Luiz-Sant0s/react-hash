@@ -156,21 +156,24 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
   };
 
   return (
-    <S.GameContianer>
-      <Title nameGame="Hash Game" />
+    <>
+      <S.PLayerTurn>player turn <S.SpanTurn>{game.player}</S.SpanTurn></S.PLayerTurn>
+      <S.GameContianer>
+        <Title nameGame="Hash Game" />
 
-      <Board boardCurrent={boardCurrent} onClick={fillTheAreaWithThePlayer} />
+        <Board boardCurrent={boardCurrent} onClick={fillTheAreaWithThePlayer} />
 
-      <GameDialog
-        game={game}
-        startGame={startGame}
-        goHome={goHome}
-        selectComputer={() => setGame({ ...game, adversary: "computer" })}
-        selectMultiPlayers={() => setGame({ ...game, adversary: "multiPlayers" })}
-      />
+        <GameDialog
+          game={game}
+          startGame={startGame}
+          goHome={goHome}
+          selectComputer={() => setGame({ ...game, adversary: "computer" })}
+          selectMultiPlayers={() => setGame({ ...game, adversary: "multiPlayers" })}
+        />
 
-      <GoToGitHub />
-    </S.GameContianer>
+        <GoToGitHub />
+      </S.GameContianer>
+    </>
   );
 }
 

@@ -6,7 +6,7 @@ export const GameContianer = styled.section`
   font-weight: bold;
   color: #00000077;
   border: 1px solid;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   padding: 15px;
   max-width: 340px;
 
@@ -14,4 +14,15 @@ export const GameContianer = styled.section`
     width: 95%;
     margin: auto;
   }
+`;
+
+export const PLayerTurn = styled.h2`
+  font-size: 15px;
+  color: #00000060;
+  text-align: center;
+`;
+
+export const SpanTurn = styled.span `
+ font-size: 25px;
+  color: #00000080;
 `;
