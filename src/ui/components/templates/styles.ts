@@ -20,9 +20,10 @@ export const PLayerTurn = styled.h2`
   font-size: 15px;
   color: #00000060;
   text-align: center;
+  margin-bottom: 10px;
 `;
 
-export const SpanTurn = styled.span `
- font-size: 25px;
+export const SpanTurn = styled.span`
+  font-size: 25px;
   color: #00000080;
 `;

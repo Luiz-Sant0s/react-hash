@@ -7,10 +7,10 @@ export const BoardStyle = styled.ul`
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
 
-  @media (max-width: 400px) {
+  /* @media (max-width: 400px) {
     grid-template-columns: repeat(3, 80px);
     grid-template-rows: repeat(3, 80px);
-  }
+  } */
 `;
 
 export const PlayerArea = styled.li<typesPlayerAresStyle>`
