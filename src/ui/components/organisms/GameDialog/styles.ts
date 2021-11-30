@@ -3,15 +3,14 @@ import {
   OpenDialogTypeStyle,
   PlayerWinnerStyle,
   VisibleHiddenBoard,
-  BtnStartTypesStyle
+  BtnStartTypesStyle,
 } from "../../../helpers/types";
 import {
   animationStartGame,
   animationDraw,
   animationWinnerCoin,
-  animationWinnerTrophy,  
+  animationWinnerTrophy,
 } from "../../../helpers/animations";
-
 
 export const Background = styled.div<OpenDialogTypeStyle>`
   display: ${(props) => (props.open ? "flex" : "none")};
