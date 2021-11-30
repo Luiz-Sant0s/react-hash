@@ -27,6 +27,7 @@ export const GoToGitHubStyle = styled.button<GoToGitHubStyleTypes>`
   font-style: normal;
   font-weight: bold;
   color: ${(props) => !props.colorDescription ? "#555" : "rgb(248, 248, 255, 0.7)" };
+  border-color: ${(props) => !props.colorDescription ? "#555" : "rgb(248, 248, 255, 0.7)"};
   font-size: 11px;
   z-index: 101;
   
@@ -41,6 +42,7 @@ export const GoToGitHubStyle = styled.button<GoToGitHubStyleTypes>`
 
 export const LinkToGitHub = styled.a`
   text-decoration: none;
+ 
 `;
 
 export const ImgGit = styled.img`
