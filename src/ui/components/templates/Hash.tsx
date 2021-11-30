@@ -156,7 +156,7 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
 
   const replay = () => {
     setBoardCurrent(turningBoardIntoArray[0]);
-    setGame({ ...game, player: "X", winner: null, statusGame: null });
+    setGame({ ...game, player: game.round % 2 === 0 ? "O" : "X", winner: null, statusGame: null });
   };
 
   const goHome = () => {
