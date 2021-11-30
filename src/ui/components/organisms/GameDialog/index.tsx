@@ -70,7 +70,7 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, replay, goHome
 
               <S.BtnReplay /* className="nes-btn" */ aria-label="Button Replay" type="button" onClick={replay}>
                 <i className="snes-jp-logo"></i>
-                REPLAY
+                PLAY AGAIN
               </S.BtnReplay>
 
               <S.BtnGoHome /* className="nes-btn" */ aria-label="Button GoHome" type="button" onClick={goHome} >

@@ -69,7 +69,7 @@ export const ContainerGameDialog = styled.dialog<VisibleHiddenBoard>`
   min-height: 440px;
 
   @media (max-width: 500px) {
-    width: 95%;
+    width: 94%;
     min-width: auto;
   }
 `;
@@ -232,6 +232,7 @@ export const BtnMultiPlayers = styled(BtnStart)<PlayerWinnerStyle>`
 
 export const BtnReplay = styled(BtnStart)`
   animation-name: none;
+  padding: 8px;
 `;
 
 export const BtnGoHome = styled(BtnStart)`
