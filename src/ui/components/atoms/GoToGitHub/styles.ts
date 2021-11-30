@@ -11,7 +11,11 @@ const RotateIconGit = keyframes`
  100% {  transform: rotate(-60deg) } 
 `;
 
-export const GoToGitHubStyle = styled.button`
+interface GoToGitHubStyleTypes {
+  colorDescription: string | null;
+}
+
+export const GoToGitHubStyle = styled.button<GoToGitHubStyleTypes>`
   background: #929eaa;
   border-radius: 50%;
   height: 65px;
@@ -20,11 +24,12 @@ export const GoToGitHubStyle = styled.button`
   bottom: 50px;
   right: 15px;
   cursor: pointer;
-  /* font-family: Segoe UI italic; */
   font-style: normal;
   font-weight: bold;
-  color: #555;
+  color: ${(props) => !props.colorDescription ? "#555" : "rgb(248, 248, 255, 0.7)" };
   font-size: 11px;
+  z-index: 101;
+  
 
   :hover {
     background-color: #b1b6bb;
@@ -36,7 +41,6 @@ export const GoToGitHubStyle = styled.button`
 
 export const LinkToGitHub = styled.a`
   text-decoration: none;
-  color: black;
 `;
 
 export const ImgGit = styled.img`

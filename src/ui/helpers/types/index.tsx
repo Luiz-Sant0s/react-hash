@@ -21,12 +21,16 @@ export interface TypesGame {
   player: string;
   statusGame: string | null;
   adversary: null | string;
-  winner: null | string ;
+  winner: null | string;
+  pointsX: number,
+  round: number,
+  pointsO: number,
 }
 
 export interface typesGameDialog {
   game: TypesGame;
   startGame: () => void;
+  replay: () => void;
   goHome: () => void;
   selectComputer: () => void;
   selectMultiPlayers: () => void;

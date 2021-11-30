@@ -3,7 +3,7 @@ import * as S from "./styles";
 import { typesGameDialog } from '../../../helpers/types';
 import { ImageGlobal } from "../../../helpers/constantes";
 
-const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, goHome, selectComputer, selectMultiPlayers }) => {
+const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, replay, goHome, selectComputer, selectMultiPlayers }) => {
   const [viewBoard, setViewBoard] = useState("visible")
 
   return (
@@ -68,7 +68,7 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, goHome, select
             )}
             <S.ContainerBtns >
 
-              <S.BtnReplay /* className="nes-btn" */ aria-label="Button Replay" type="button" onClick={startGame}>
+              <S.BtnReplay /* className="nes-btn" */ aria-label="Button Replay" type="button" onClick={replay}>
                 <i className="snes-jp-logo"></i>
                 REPLAY
               </S.BtnReplay>

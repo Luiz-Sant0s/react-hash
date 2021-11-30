@@ -3,13 +3,13 @@ import * as S from "./styles";
 import { ImageGlobal } from '../../../helpers/constantes/index';
 
 interface GoToGitHubProps {
-  props?: string;
+  colorDescription: null | string;
 }
 
-const GoToGitHub: React.FC<GoToGitHubProps> = () => {
+const GoToGitHub: React.FC<GoToGitHubProps> = ({ colorDescription }) => {
   return (
       <S.LinkToGitHub href="https://github.com/J0se-Luiz/react-hash" target="_blank" rel="noopener">
-    <S.GoToGitHubStyle>
+    <S.GoToGitHubStyle colorDescription={colorDescription}>
         <S.ImgGit
           src={ImageGlobal.GoToGitHub}
           alt="Go to GitHub"

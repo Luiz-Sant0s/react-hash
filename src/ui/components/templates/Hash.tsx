@@ -18,6 +18,9 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
     statusGame: "Home",
     adversary: null,
     winner: null,
+    pointsX: 0,
+    round: 1,
+    pointsO: 0,
   });
   const historyNavigate = useNavigate();
 
@@ -89,16 +92,16 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
   const validWinner = () => {
     endOfTheGame(boardCurrent).forEach((playerAreas) => {
       if (playerAreas.every((playerArea) => playerArea === "O"))
-        return setGame({ ...game, winner: "O", statusGame: "GameOver" });
+        return setGame({ ...game, winner: "O", statusGame: "GameOver", pointsO: game.pointsO + 1, round: game.round + 1 });
 
       if (playerAreas.every((playerArea) => playerArea === "X"))
-        return setGame({ ...game, winner: "X", statusGame: "GameOver" });
+        return setGame({ ...game, winner: "X", statusGame: "GameOver", pointsX: game.pointsX + 1, round: game.round + 1 });
     });
   };
 
   const validDraw = () => {
     if (boardCurrent?.every((playerArea: string) => playerArea !== " "))
-      return setGame({ ...game, winner: "draw", statusGame: "GameOver" });
+      return setGame({ ...game, winner: "draw", statusGame: "GameOver", round: game.round + 1 });
   };
 
   const computerMovementAndEndOfTheGame = useCallback(() => {
@@ -148,6 +151,11 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
 
   const startGame = () => {
     setBoardCurrent(turningBoardIntoArray[0]);
+    setGame({ ...game, player: "X", winner: null, statusGame: null, pointsX: 0, round: 1, pointsO: 0 });
+  };
+
+  const replay = () => {
+    setBoardCurrent(turningBoardIntoArray[0]);
     setGame({ ...game, player: "X", winner: null, statusGame: null });
   };
 
@@ -157,7 +165,12 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
 
   return (
     <>
-      {!game?.statusGame && <S.PLayerTurn>player turn <S.SpanTurn>{game.player}</S.SpanTurn></S.PLayerTurn>}
+     {!game?.statusGame &&
+        <S.ContainerPointsRound>
+          <S.Points>Points X<S.ValuePoints>{game.pointsX}</S.ValuePoints></S.Points>
+          <S.Round>Round <S.ValueRound>{game.round}</S.ValueRound> </S.Round>
+          <S.Points>Points O<S.ValuePoints>{game.pointsO}</S.ValuePoints></S.Points>
+        </S.ContainerPointsRound>}    
       <S.GameContianer>
         <Title nameGame="Hash Game" />
 
@@ -166,13 +179,15 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
         <GameDialog
           game={game}
           startGame={startGame}
+          replay={replay}
           goHome={goHome}
           selectComputer={() => setGame({ ...game, adversary: "computer" })}
           selectMultiPlayers={() => setGame({ ...game, adversary: "multiPlayers" })}
         />
 
-        <GoToGitHub />
+        <GoToGitHub colorDescription={game?.statusGame}/>
       </S.GameContianer>
+      {!game?.statusGame && <S.PLayerTurn>player turn <S.SpanTurn>{game.player}</S.SpanTurn></S.PLayerTurn>}
     </>
   );
 }
