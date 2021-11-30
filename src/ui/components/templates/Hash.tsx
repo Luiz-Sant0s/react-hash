@@ -168,7 +168,7 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
       {!game?.statusGame &&
         <S.ContainerPointsRound>
           <S.Points>Points X<S.ValuePointsX>{game.pointsX}</S.ValuePointsX></S.Points>
-          <S.Round>Round <S.ValueRound>{game.round}</S.ValueRound> </S.Round>
+          <S.Round>Round <S.RoundAnimation><S.ValueRound>{game.round}</S.ValueRound></S.RoundAnimation> </S.Round>
           <S.Points>Points O<S.ValuePointsO>{game.pointsO}</S.ValuePointsO></S.Points>
         </S.ContainerPointsRound>}
       <S.GameContianer>
@@ -187,7 +187,11 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
 
         <GoToGitHub colorDescription={game?.statusGame} />
       </S.GameContianer>
-      {!game?.statusGame && <S.PLayerTurn>player turn <S.SpanTurn colorPlayrTurn={game.player}>{game.player}</S.SpanTurn></S.PLayerTurn>}
+      {!game?.statusGame && <S.PLayerTurn>player turn
+        <S.PlayerTurnAnimation>
+          <S.SpanTurn colorPlayrTurn={game.player}>{game.player}</S.SpanTurn>
+        </S.PlayerTurnAnimation>
+      </S.PLayerTurn>}
     </>
   );
 }

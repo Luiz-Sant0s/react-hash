@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { HashTypesStyle } from '../../helpers/types';
+import { animationTurnPlayer, animationRound } from '../../helpers/animations';
 
 export const GameContianer = styled.section`
   height: auto;
@@ -22,17 +24,28 @@ export const PLayerTurn = styled.h2`
   color: #00000060;
   text-align: left;
   padding: 13px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 `;
 
-interface HashTypesStyle {
- colorPlayrTurn: string;
-}
+export const PlayerTurnAnimation = styled.div`
+  animation-name: ${animationTurnPlayer};
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+`;
+
+export const RoundAnimation = styled.div`
+  animation-name: ${animationRound};
+  animation-duration: 2.2s;
+  animation-iteration-count: infinite;
+`;
 
 export const SpanTurn = styled.span<HashTypesStyle>`
-  font-size: 25px;
+  font-size: 22px;
   /* color: #00000080; */
-  color: ${(props) => props.colorPlayrTurn === "X" ? "red" : "blue" };
-
+  color: ${(props) => (props.colorPlayrTurn === "X" ? "red" : "blue")};
+  background-color: white;
 `;
 
 export const ContainerPointsRound = styled.aside`
@@ -54,6 +67,8 @@ export const Points = styled.p`
 export const Round = styled(Points)`
   font-size: 16px;
   color: #00000080;
+  display: flex;
+  gap: 10px;
 `;
 
 export const ValuePointsX = styled.span`

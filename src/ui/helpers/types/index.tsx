@@ -36,6 +36,10 @@ export interface typesGameDialog {
   selectMultiPlayers: () => void;
 };
 
+export interface HashTypesStyle {
+  colorPlayrTurn: string;
+}
+
 export interface OpenDialogTypeStyle {
   open: boolean | null | string;
 }

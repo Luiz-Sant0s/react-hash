@@ -22,3 +22,16 @@ export const animationWinnerTrophy = keyframes`
  40% {  transform:  scale(0.8);  }
  100% { transform: scale(1.1); }
 `;
+
+
+export const animationTurnPlayer = keyframes`
+0% {  transform: scale(0.9);}
+ 40% {  transform: scale(1.2) ;}
+ 100% {  transform:  scale(0.8);} 
+`;
+
+export const animationRound = keyframes`
+0% {  transform: scaleX(-1) scale(1.1);}
+ 40% {  transform: scale(0.9) ;}
+ 100% {  transform:  scale(1.3);} 
+`;
