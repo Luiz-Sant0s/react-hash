@@ -53,6 +53,7 @@ export const Round = styled(Points)`
 export const ValuePoints = styled.span`
   font-size: 16px;
   color: #00000080;
+  padding: 5px;
 `;
 
 export const ValueRound = styled(ValuePoints)`
