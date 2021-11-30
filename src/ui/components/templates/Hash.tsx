@@ -165,12 +165,12 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
 
   return (
     <>
-     {!game?.statusGame &&
+      {!game?.statusGame &&
         <S.ContainerPointsRound>
-          <S.Points>Points X<S.ValuePoints>{game.pointsX}</S.ValuePoints></S.Points>
+          <S.Points>Points X<S.ValuePointsX>{game.pointsX}</S.ValuePointsX></S.Points>
           <S.Round>Round <S.ValueRound>{game.round}</S.ValueRound> </S.Round>
-          <S.Points>Points O<S.ValuePoints>{game.pointsO}</S.ValuePoints></S.Points>
-        </S.ContainerPointsRound>}    
+          <S.Points>Points O<S.ValuePointsO>{game.pointsO}</S.ValuePointsO></S.Points>
+        </S.ContainerPointsRound>}
       <S.GameContianer>
         <Title nameGame="Hash Game" />
 
@@ -185,9 +185,9 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
           selectMultiPlayers={() => setGame({ ...game, adversary: "multiPlayers" })}
         />
 
-        <GoToGitHub colorDescription={game?.statusGame}/>
+        <GoToGitHub colorDescription={game?.statusGame} />
       </S.GameContianer>
-      {!game?.statusGame && <S.PLayerTurn>player turn <S.SpanTurn>{game.player}</S.SpanTurn></S.PLayerTurn>}
+      {!game?.statusGame && <S.PLayerTurn>player turn <S.SpanTurn colorPlayrTurn={game.player}>{game.player}</S.SpanTurn></S.PLayerTurn>}
     </>
   );
 }

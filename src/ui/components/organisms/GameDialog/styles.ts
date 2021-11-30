@@ -30,8 +30,10 @@ export const Background = styled.div<OpenDialogTypeStyle>`
 
 export const BtnVisibleHidden = styled.button`
   z-index: 101;
-  position: fixed;
-  top: calc(50vh - 240px);
+  /* position: fixed;
+  top: calc(50vh - 240px); */
+  position: relative;
+  top: -425px;
   font-weight: bold;
   color: #00000090;
   box-shadow: 4px 8px 9px 0px #00000090;

@@ -24,9 +24,15 @@ export const PLayerTurn = styled.h2`
   padding: 13px;
 `;
 
-export const SpanTurn = styled.span`
+interface HashTypesStyle {
+ colorPlayrTurn: string;
+}
+
+export const SpanTurn = styled.span<HashTypesStyle>`
   font-size: 25px;
-  color: #00000080;
+  /* color: #00000080; */
+  color: ${(props) => props.colorPlayrTurn === "X" ? "red" : "blue" };
+
 `;
 
 export const ContainerPointsRound = styled.aside`
@@ -50,12 +56,17 @@ export const Round = styled(Points)`
   color: #00000080;
 `;
 
-export const ValuePoints = styled.span`
+export const ValuePointsX = styled.span`
   font-size: 16px;
-  color: #00000080;
   padding: 5px;
+  color: red;
 `;
 
-export const ValueRound = styled(ValuePoints)`
-font-size: 18px;
+export const ValuePointsO = styled(ValuePointsX)`
+  color: blue;
+`;
+
+export const ValueRound = styled(ValuePointsX)`
+  font-size: 18px;
+  color: #00000080;
 `;
