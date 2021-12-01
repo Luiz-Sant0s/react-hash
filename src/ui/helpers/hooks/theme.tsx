@@ -1,17 +1,30 @@
 import React, { createContext, useContext } from 'react';
-import { ThemeProvider } from 'styled-components';
-import { lightTheme, secondTheme } from '../styles/themes';
+import { ThemeProvider, DefaultTheme } from 'styled-components';
+import { lightTheme, darkTheme } from '../styles/themes';
 import usePersistedTheme from './usePersistedTheme';
-import { DefaultTheme } from 'styled-components';
 
 interface Theme {
   name: string;
   colors: {
+
+    background: {
+      primary: string,
+      secondary: string,
+    },
+
+    text: {
+      primary: string,
+      secondary: string,
+    },
+
+
+    
     primary: string,
     black: string,
-    background: string,
+    
     border: string,
-  }
+    test: { test: string; }; 
+  };
 }
 
 interface ThemeContextData {
@@ -23,12 +36,12 @@ const ThemeContext = createContext<ThemeContextData>({} as ThemeContextData);
 
 export const useTheme = () => useContext(ThemeContext);
 
-export const CustomThemeProvider: React.FC = ({ children }) => {
+export const SelectThemeProvider: React.FC = ({ children }) => {
 
   const [theme, setTheme] = usePersistedTheme<DefaultTheme>('theme', lightTheme);
 
   const toggleTheme = () => {
-    setTheme(theme.name === 'light' ? secondTheme : lightTheme);
+    setTheme(theme.name === 'light' ? darkTheme : lightTheme);
   };
 
   return (

@@ -1,19 +1,48 @@
 export const lightTheme = {
     name: 'light',
     colors: {
-      primary: '#16a085',
+
+      background: {
+        primary: '#f8f8ff',
+        secondary: '#fffcff',
+      },
+
+      text: {
+        primary: '#00000060',
+        secondary: '#00000080',
+      },
+
+      primary: '#f8f8ff77',
       black: '#ecf0f1',
-      background: '#2c3e50',
       border: '#2980b9',
-    }
+      test: {
+        test: '#234531'
+      }
+    },
   }
   
-  export const secondTheme = {
-    name: 'second',
+  export const darkTheme = {
+    name: 'dark',
     colors: {
-      primary: '#8e44ad',
+
+      background: {
+        primary: '#50514F',
+        secondary: '#565756',
+        // ternary
+      },
+
+      text: {
+        primary: '#f8f8ff99',
+        secondary: '#f8f8ff99',
+      },
+
+      primary: '#00000077',
       black: '#34495e',
-      background: '#e74c3c',
+
+      
       border: '#27ae60',
-    }
+      test: {
+        test: '#320124'
+      }
+    },
   } 

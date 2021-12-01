@@ -1,19 +1,15 @@
 import { useState, useEffect, Dispatch, SetStateAction } from "react";
 
-type Response<T> = [T, Dispatch<SetStateAction<T>>];
+type Response<Type> = [Type, Dispatch<SetStateAction<Type>>];
 
-function usePersistedTheme<T>(key: string, initialState: T): Response<T> {
+function usePersistedTheme<Type>(
+  key: string,
+  themeDefault: Type
+): Response<Type> {
   const [theme, setTheme] = useState(() => {
-    const storageValue = localStorage.getItem(key);
+    const currentTheme = localStorage.getItem(key);
 
-   //  if (storageValue) {
-   //    return JSON.parse(storageValue);
-   //  } else {
-   //    return initialState;
-   //  }
-
-  return  storageValue ? JSON.parse(storageValue) : initialState;
-    
+    return currentTheme ? JSON.parse(currentTheme) : themeDefault;
   });
 
   useEffect(() => {

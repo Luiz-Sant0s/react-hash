@@ -6,9 +6,9 @@ export const GameContianer = styled.section`
   height: auto;
   border-radius: 5px;
   font-weight: bold;
-  color: #00000077;
-  border: 1px solid;
-  background-color: #ffffff;
+  border: 1px solid #00000077;
+  background-color: ${(props) => props.theme.colors.background.secondary};
+  /* background-color: ${(props) => props.theme.colors.test.test}; */
   padding: 15px;
   max-width: 340px;
   box-shadow: 3px 4px 14px 5px #00000065;
@@ -21,7 +21,7 @@ export const GameContianer = styled.section`
 
 export const PLayerTurn = styled.h2`
   font-size: 15px;
-  color: #00000060;
+  color: ${(props) => props.theme.colors.text.secondary};
   text-align: left;
   padding: 13px;
   display: flex;
@@ -59,7 +59,7 @@ export const ContainerPointsRound = styled.aside`
 
 export const Points = styled.p`
   font-size: 13px;
-  color: #00000060;
+  color: ${(props) => props.theme.colors.text.secondary};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +69,7 @@ export const Points = styled.p`
 
 export const Round = styled(Points)`
   font-size: 16px;
-  color: #00000080;
+  color: ${(props) => props.theme.colors.text.primary};
   display: flex;
   gap: 10px;
 `;
@@ -86,5 +86,5 @@ export const ValuePointsO = styled(ValuePointsX)`
 
 export const ValueRound = styled(ValuePointsX)`
   font-size: 18px;
-  color: #00000080;
+  color: ${(props) => props.theme.colors.text.primary};
 `;

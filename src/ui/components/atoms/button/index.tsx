@@ -9,11 +9,10 @@ const Button: React.FC = () => {
   const handleToggleTheme = () => {
     toggleTheme();
   }
-  console.log(">.....", theme)
 
   return (
    
-      <button type="button" onClick={handleToggleTheme} >Thema</button>
+      <button type="button" onClick={toggleTheme} >Thema</button>
    
   );
 };
