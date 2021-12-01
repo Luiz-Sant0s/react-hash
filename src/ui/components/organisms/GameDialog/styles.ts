@@ -69,7 +69,7 @@ export const ContainerGameDialog = styled.dialog<VisibleHiddenBoard>`
   min-height: 440px;
 
   @media (max-width: 500px) {
-    width: 94%;
+    width: 93.5%;
     min-width: auto;
   }
 `;

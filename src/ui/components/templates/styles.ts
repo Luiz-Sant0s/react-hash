@@ -64,6 +64,7 @@ export const Points = styled.p`
   flex-direction: column;
   align-items: center;
   margin-bottom: 0;
+  letter-spacing: -2.5px;
 `;
 
 export const Round = styled(Points)`
