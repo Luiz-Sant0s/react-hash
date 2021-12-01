@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '../../../helpers/hooks/theme';
 
-// import { Contain er, ComponentButton } from './styles';
+import * as S from './styles';
 
 const Button: React.FC = () => {
   const { toggleTheme, theme } = useTheme();
@@ -12,7 +12,7 @@ const Button: React.FC = () => {
 
   return (
    
-      <button type="button" onClick={toggleTheme} >Thema</button>
+      <S.ButtonStyle type="button" onClick={toggleTheme} >Thema</S.ButtonStyle>
    
   );
 };

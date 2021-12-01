@@ -30,10 +30,10 @@ export const Background = styled.div<OpenDialogTypeStyle>`
 
 export const BtnVisibleHidden = styled.button`
   z-index: 101;
-  /* position: fixed;
-  top: calc(50vh - 240px); */
-  position: relative;
-  top: -425px;
+  position: fixed;
+  top: calc(50vh - 240px);
+  /* position: relative;
+  top: -425px; */
   font-weight: bold;
   color: ${(props) => props.theme.colors.text.primary};
   box-shadow: 4px 8px 9px 0px ${(props) => props.theme.colors.boxShadow.primary};
@@ -81,7 +81,10 @@ export const TitleModal = styled.h2`
   color: ${(props) => props.theme.colors.text.primary};
 
   .nes-octocat {
-    opacity: 0.7;
+    /* opacity: 0.9; */
+    :before{
+      color: ${(props) => props.theme.colors.octocat} !important;
+    }
   }
 `;
 

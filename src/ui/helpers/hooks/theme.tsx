@@ -6,7 +6,7 @@ import usePersistedTheme from './usePersistedTheme';
 interface Theme {
   name: string;
   colors: {
-
+    octocat: string,
     background: {
       primary: string,
       secondary: string,
