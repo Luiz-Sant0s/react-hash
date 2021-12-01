@@ -8,6 +8,7 @@ import Title from "../atoms/Title";
 import GoToGitHub from '../atoms/GoToGitHub';
 import Board from '../molecules/Board';
 import GameDialog from '../organisms/GameDialog';
+import Button from '../atoms/button'
 
 const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
 
@@ -165,6 +166,8 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
 
   return (
     <>
+    <Button> aaa theme</Button>
+    
       {!game?.statusGame &&
         <S.ContainerPointsRound>
           <S.Points>Points X<S.ValuePointsX>{game.pointsX}</S.ValuePointsX></S.Points>
@@ -192,6 +195,8 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
           <S.SpanTurn colorPlayrTurn={game.player}>{game.player}</S.SpanTurn>
         </S.PlayerTurnAnimation>
       </S.PLayerTurn>}
+
+      
     </>
   );
 }
