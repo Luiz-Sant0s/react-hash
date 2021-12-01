@@ -10,6 +10,7 @@ interface Theme {
     background: {
       primary: string,
       secondary: string,
+      ternary: string,
     },
 
     text: {
@@ -17,14 +18,10 @@ interface Theme {
       secondary: string,
     },
 
-
-    
-    primary: string,
-    black: string,
-    
-    border: string,
-    test: { test: string; }; 
-  };
+    boxShadow: {
+      primary: string,
+    },
+}
 }
 
 interface ThemeContextData {

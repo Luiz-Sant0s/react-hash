@@ -8,10 +8,9 @@ export const GameContianer = styled.section`
   font-weight: bold;
   border: 1px solid #00000077;
   background-color: ${(props) => props.theme.colors.background.secondary};
-  /* background-color: ${(props) => props.theme.colors.test.test}; */
   padding: 15px;
   max-width: 340px;
-  box-shadow: 3px 4px 14px 5px #00000065;
+  box-shadow: 3px 4px 14px 5px  ${(props) => props.theme.colors.boxShadow.primary};
 
   @media (max-width: 400px) {
     width: 95%;
@@ -39,14 +38,12 @@ export const RoundAnimation = styled.div`
   animation-name: ${animationRound};
   animation-duration: 2.2s;
   animation-iteration-count: 1;
-  /* animation-delay: 2s; */
   animation-delay: 0.2s;
   transform: scale(1.4);
 `;
 
 export const SpanTurn = styled.span<HashTypesStyle>`
   font-size: 22px;
-  /* color: #00000080; */
   color: ${(props) => (props.colorPlayrTurn === "X" ? "red" : "blue")};
 `;
 

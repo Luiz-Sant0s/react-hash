@@ -6,21 +6,16 @@ export const BoardStyle = styled.ul`
   justify-content: center;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
-
-  /* @media (max-width: 400px) {
-    grid-template-columns: repeat(3, 80px);
-    grid-template-rows: repeat(3, 80px);
-  } */
 `;
 
 export const PlayerArea = styled.li<typesPlayerAresStyle>`
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.colors.background.secondary};
   display: grid;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
   font-weight: bold;
-  color: #00000060;
+  color: ${(props) => props.theme.colors.text.primary};
   border: 3px solid;
 
   ${(props) => {
@@ -67,10 +62,10 @@ export const PlayerArea = styled.li<typesPlayerAresStyle>`
       return css`
         :hover {
           border: 4px solid;
-          box-shadow: 2px 5px 23px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 5px 23px 7px #00000065;
           transition: all 0.2s ease-in-out;
           transform: scale(1.1);
-          background-color: rgba(248, 248, 255);
+          background-color: ${(props) => props.theme.colors.background.primary};
         }
       `;
   }};

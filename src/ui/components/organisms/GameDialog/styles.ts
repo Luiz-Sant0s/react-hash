@@ -22,7 +22,7 @@ export const Background = styled.div<OpenDialogTypeStyle>`
     height: 100%;
     content: " ";
     position: fixed;
-    background: rgba(0, 0, 0, 0.5);
+    background: ${(props) => props.theme.colors.background.ternary};
 
     z-index: 100;
   }
@@ -35,12 +35,12 @@ export const BtnVisibleHidden = styled.button`
   position: relative;
   top: -425px;
   font-weight: bold;
-  color: #00000090;
-  box-shadow: 4px 8px 9px 0px #00000090;
+  color: ${(props) => props.theme.colors.text.primary};
+  box-shadow: 4px 8px 9px 0px ${(props) => props.theme.colors.boxShadow.primary};
   border: solid 2.5px #000000;
   font-size: 13px;
   padding: 5px;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.colors.background.secondary};
 
   &:hover {
     border: "1px solid #00000055";
@@ -62,9 +62,9 @@ export const ContainerGameDialog = styled.dialog<VisibleHiddenBoard>`
   transform: translateY(-50%);
   z-index: 100;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.colors.background.secondary};
   padding: 20px 10px 0px 10px;
-  box-shadow: 3px 4px 14px 5px #00000080;
+  box-shadow: 3px 4px 14px 5px ${(props) => props.theme.colors.boxShadow.primary};
   width: 360px;
   min-height: 440px;
 
@@ -74,11 +74,11 @@ export const ContainerGameDialog = styled.dialog<VisibleHiddenBoard>`
   }
 `;
 
-export const TitleModal = styled.p`
+export const TitleModal = styled.h2`
   margin: 5px;
   font-size: 25px;
   font-weight: bold;
-  color: #00000080;
+  color: ${(props) => props.theme.colors.text.primary};
 
   .nes-octocat {
     opacity: 0.7;
@@ -87,7 +87,7 @@ export const TitleModal = styled.p`
 
 export const DescriptionModal = styled(TitleModal)`
   font-size: 15px;
-  color: #00000060;
+  color: ${(props) => props.theme.colors.text.secondary};
   padding: 0 15px 10px 15px;
 `;
 
@@ -169,9 +169,9 @@ export const BtnStart = styled.button<BtnStartTypesStyle>`
   gap: 5px;
   background-color: transparent;
   min-width: 112px;
-  box-shadow: 4px 8px 9px 0px #00000070;
+  box-shadow: 4px 8px 9px 0px ${(props) => props.theme.colors.boxShadow.primary};
   font-weight: bold;
-  color: #00000095;
+  color: ${(props) => props.theme.colors.text.primary};
 
   @media (max-width: 1024px) {
     font-size: 0.8rem;
