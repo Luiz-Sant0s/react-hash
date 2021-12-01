@@ -1,17 +1,17 @@
-import React, { createContext, useCallback, useContext, useState } from 'react';
+import React, { createContext, useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { firstTheme, secondTheme } from '../styles/themes';
+import { lightTheme, secondTheme } from '../styles/themes';
 import usePersistedTheme from './usePersistedTheme';
-
+import { DefaultTheme } from 'styled-components';
 
 interface Theme {
-    name: string;
-    colors: {
-        primary: string,
-        black: string,
-        background: string,
-        border: string,
-    }
+  name: string;
+  colors: {
+    primary: string,
+    black: string,
+    background: string,
+    border: string,
+  }
 }
 
 interface ThemeContextData {
@@ -24,22 +24,11 @@ const ThemeContext = createContext<ThemeContextData>({} as ThemeContextData);
 export const useTheme = () => useContext(ThemeContext);
 
 export const CustomThemeProvider: React.FC = ({ children }) => {
-//   const [theme, setTheme] = useState<Theme>(firstTheme);
 
-const [theme, setTheme] = usePersistedTheme('theme', firstTheme);
+  const [theme, setTheme] = usePersistedTheme<DefaultTheme>('theme', lightTheme);
 
-//   const toggleTheme = useCallback(() => {
-//     if (theme.name === 'first'){
-//       setTheme(secondTheme);
-//     }
-//     else if (theme.name === 'second') {
-//       setTheme(firstTheme);
-//     }
-//   }, [theme]);
-
-const toggleTheme = () => {
-    // setTheme(theme.name === 'first' ? secondTheme : firstTheme);
-    setTheme(theme.name === 'first' ? secondTheme : firstTheme);
+  const toggleTheme = () => {
+    setTheme(theme.name === 'light' ? secondTheme : lightTheme);
   };
 
   return (
@@ -50,7 +39,7 @@ const toggleTheme = () => {
         {children}
       </ThemeProvider>
     </ThemeContext.Provider>
-  ) 
+  )
 }
 
 export default ThemeProvider;

@@ -1,5 +1,5 @@
-export const firstTheme = {
-    name: 'first',
+export const lightTheme = {
+    name: 'light',
     colors: {
       primary: '#16a085',
       black: '#ecf0f1',

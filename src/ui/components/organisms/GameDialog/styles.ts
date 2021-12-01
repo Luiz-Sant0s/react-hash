@@ -4,7 +4,7 @@ import {
   PlayerWinnerStyle,
   VisibleHiddenBoard,
   BtnStartTypesStyle,
-} from "../../../helpers/types";
+} from "../../../helpers/interfaces";
 import {
   animationStartGame,
   animationDraw,

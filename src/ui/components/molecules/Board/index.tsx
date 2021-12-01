@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './styles';
-import { TypesBoard } from '../../../helpers/types'
+import { TypesBoard } from '../../../helpers/interfaces'
 
 const Board: React.FC<TypesBoard> = ({ boardCurrent, onClick }) => (
   <S.BoardStyle>

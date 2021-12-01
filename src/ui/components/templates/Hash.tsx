@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import * as S from './styles'
 import { endOfTheGame, boardDefault, onlyGameCharacters, gameCharacters } from '../../helpers/constantes';
-import { TypesGame, TypesHash } from '../../helpers/types';
+import { TypesGame, TypesHash } from '../../helpers/interfaces';
 import Title from "../atoms/Title";
 import GoToGitHub from '../atoms/GoToGitHub';
 import Board from '../molecules/Board';

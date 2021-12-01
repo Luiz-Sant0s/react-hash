@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { typesPlayerAresStyle } from "../../../helpers/types";
+import { typesPlayerAresStyle } from "../../../helpers/interfaces";
 
 export const BoardStyle = styled.ul`
   display: grid;

@@ -1,21 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Dispatch, SetStateAction } from "react";
 
-function usePersisted(key: string, initialState: any) {
-const [state, setState] = useState(() => {
-   const storageValue = localStorage.getItem(key);
+type Response<T> = [T, Dispatch<SetStateAction<T>>];
 
-   if (storageValue){
-      return JSON.parse(storageValue)
-   }else {
-      return initialState
-   }
-});
+function usePersistedTheme<T>(key: string, initialState: T): Response<T> {
+  const [theme, setTheme] = useState(() => {
+    const storageValue = localStorage.getItem(key);
 
-useEffect(() => {
-   localStorage.setItem(key, JSON.stringify(state));
-}, [key, state])
+   //  if (storageValue) {
+   //    return JSON.parse(storageValue);
+   //  } else {
+   //    return initialState;
+   //  }
 
-return [state, setState]
+  return  storageValue ? JSON.parse(storageValue) : initialState;
+    
+  });
+
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(theme));
+  }, [key, theme]);
+
+  return [theme, setTheme];
 }
 
-export default usePersisted;
+export default usePersistedTheme;

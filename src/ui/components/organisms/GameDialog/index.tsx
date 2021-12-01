@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./styles";
-import { typesGameDialog } from '../../../helpers/types';
+import { typesGameDialog } from '../../../helpers/interfaces';
 import { ImageGlobal } from "../../../helpers/constantes";
 
 const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, replay, goHome, selectComputer, selectMultiPlayers }) => {

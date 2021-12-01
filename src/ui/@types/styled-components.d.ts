@@ -1,6 +1,6 @@
-import { firstTheme } from '../helpers/styles/themes';
+import { lightTheme } from '../helpers/styles/themes';
 
-type CustomTheme = typeof firstTheme;
+type CustomTheme = typeof lightTheme;
 
 declare module 'styled-components' {
   export interface DefaultTheme extends CustomTheme {}

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { HashTypesStyle } from "../../helpers/types";
+import { HashTypesStyle } from "../../helpers/interfaces";
 import { animationTurnPlayer, animationRound } from "../../helpers/animations";
 
 export const GameContianer = styled.section`
