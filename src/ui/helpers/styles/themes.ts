@@ -16,4 +16,4 @@ export const firstTheme = {
       background: '#e74c3c',
       border: '#27ae60',
     }
-  }
+  } 

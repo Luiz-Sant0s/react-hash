@@ -166,8 +166,8 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
 
   return (
     <>
-    <Button> aaa theme</Button>
-    
+    <Button> aaa theme</Button> 
+
       {!game?.statusGame &&
         <S.ContainerPointsRound>
           <S.Points>Points X<S.ValuePointsX>{game.pointsX}</S.ValuePointsX></S.Points>

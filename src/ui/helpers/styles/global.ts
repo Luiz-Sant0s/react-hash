@@ -26,6 +26,6 @@ body {
   body {
     justify-content: center;
   }
-}
+} 
 
 `;
