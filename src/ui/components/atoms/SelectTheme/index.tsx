@@ -7,7 +7,7 @@ const SelectTheme: React.FC<I.TypesSelectTheme> = ({ statusGame }) => {
   const { toggleTheme, theme } = useTheme();
 
   return (
-    <S.SelectThemeStyle statusGame={statusGame} type="button" onClick={toggleTheme}>
+    <S.SelectThemeStyle statusGame={statusGame} type="button" aria-label="Button Select Theme" onClick={toggleTheme}>
       {theme.name === "light" ?
         <S.Sun />
         :

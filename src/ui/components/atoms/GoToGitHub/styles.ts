@@ -3,7 +3,7 @@ import * as A from "../../../helpers/animations";
 import * as I from "../../../helpers/interfaces";
 
 export const GoToGitHubStyle = styled.button<I.GoToGitHubStyleTypes>`
-  background: ${(props) => props.theme.colors.goToGitHub.background.primary};
+  background: ${(props) => props?.theme?.colors?.goToGitHub?.background.primary};
   border-radius: 50%;
   height: 65px;
   width: 65px;
@@ -26,7 +26,7 @@ export const GoToGitHubStyle = styled.button<I.GoToGitHubStyleTypes>`
 
   :hover {
     background-color: ${(props) =>
-      props.theme.colors.goToGitHub.background.secondary};
+      props?.theme?.colors?.goToGitHub?.background.secondary};
   }
 
   :active {
