@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "nes.css/css/nes.min.css";
-import { boardDefault } from "./ui/helpers/constantes";
-import Hash from './ui/components/templates/Hash';
-import { SelectThemeProvider } from './ui/helpers/hooks/theme';
 import GlobalStyle from './ui/helpers/styles/global';
+import { SelectThemeProvider } from './ui/helpers/hooks/theme';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import * as C from "./ui/helpers/constantes";
+import Hash from './ui/components/templates/Hash';
 
 const App = () => {
-  const [initialBoard, setInitialBoard] = useState(boardDefault);
+  const [initialBoard, setInitialBoard] = useState(C.boardDefault);
 
   return (
     <SelectThemeProvider>

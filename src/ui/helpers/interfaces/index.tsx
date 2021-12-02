@@ -56,3 +56,20 @@ export interface PlayerWinnerStyle {
   winner?: string | null;
   adversary?: string | null;
 }
+
+export interface TypesSelectTheme {
+  statusGame: string | null;
+}
+
+export interface GoToGitHubTypes {
+  colorDescription: null | string;
+}
+
+export interface GoToGitHubStyleTypes {
+  colorDescription: string | null;
+  colorTheme: string | null;
+}
+
+export interface TypeSelectThemeStyle {
+  statusGame: string | null;
+}

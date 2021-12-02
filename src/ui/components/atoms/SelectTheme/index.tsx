@@ -1,17 +1,12 @@
 import React from 'react';
 import { useTheme } from '../../../helpers/hooks/theme';
-
+import * as I from "../../../helpers/interfaces";
 import * as S from './styles';
 
-interface TypesSelectTheme {
-  statusGame: string | null;
-}
-
-const SelectTheme: React.FC<TypesSelectTheme> = ({ statusGame }) => {
+const SelectTheme: React.FC<I.TypesSelectTheme> = ({ statusGame }) => {
   const { toggleTheme, theme } = useTheme();
 
   return (
-
     <S.SelectThemeStyle statusGame={statusGame} type="button" onClick={toggleTheme}>
       {theme.name === "light" ?
         <S.Sun />
@@ -20,9 +15,7 @@ const SelectTheme: React.FC<TypesSelectTheme> = ({ statusGame }) => {
           <S.BarNightMode />
           <S.HalfMoon />
         </>}
-
     </S.SelectThemeStyle>
-
   );
 };
 

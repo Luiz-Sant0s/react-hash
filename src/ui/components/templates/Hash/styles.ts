@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { HashTypesStyle } from "../../helpers/interfaces";
-import { animationTurnPlayer, animationRound } from "../../helpers/animations";
+import * as A from "../../../helpers/animations";
+import * as I from "../../../helpers/interfaces";
 
 export const GameContianer = styled.section`
   height: auto;
@@ -29,20 +29,20 @@ export const PLayerTurn = styled.h2`
 `;
 
 export const PlayerTurnAnimation = styled.div`
-  animation-name: ${animationTurnPlayer};
+  animation-name: ${A.animationTurnPlayer};
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
 `;
 
 export const RoundAnimation = styled.div`
-  animation-name: ${animationRound};
+  animation-name: ${A.animationRound};
   animation-duration: 2.2s;
   animation-iteration-count: 1;
   animation-delay: 0.2s;
   transform: scale(1.4);
 `;
 
-export const SpanTurn = styled.span<HashTypesStyle>`
+export const SpanTurn = styled.span<I.HashTypesStyle>`
   font-size: 22px;
   color: ${(props) => (props.colorPlayrTurn === "X" ? "red" : "blue")};
 `;

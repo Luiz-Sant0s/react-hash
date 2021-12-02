@@ -1,8 +1,8 @@
 import React from 'react';
+import * as I from "../../../helpers/interfaces";
 import * as S from './styles';
-import { TypesBoard } from '../../../helpers/interfaces'
 
-const Board: React.FC<TypesBoard> = ({ boardCurrent, onClick }) => (
+const Board: React.FC<I.TypesBoard> = ({ boardCurrent, onClick }) => (
   <S.BoardStyle>
     {boardCurrent?.map((player: string, index: number) => (
       <S.PlayerArea

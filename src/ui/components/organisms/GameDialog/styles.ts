@@ -1,18 +1,9 @@
 import styled, { css } from "styled-components";
-import {
-  OpenDialogTypeStyle,
-  PlayerWinnerStyle,
-  VisibleHiddenBoard,
-  BtnStartTypesStyle,
-} from "../../../helpers/interfaces";
-import {
-  animationStartGame,
-  animationDraw,
-  animationWinnerCoin,
-  animationWinnerTrophy,
-} from "../../../helpers/animations";
+import * as A from "../../../helpers/animations";
+import * as I from "../../../helpers/interfaces";
 
-export const Background = styled.div<OpenDialogTypeStyle>`
+
+export const Background = styled.div<I.OpenDialogTypeStyle>`
   display: ${(props) => (props.open ? "flex" : "none")};
 
   ::before {
@@ -31,10 +22,7 @@ export const Background = styled.div<OpenDialogTypeStyle>`
 export const BtnVisibleHidden = styled.button`
   z-index: 101;
   position: fixed;
-  /* top: calc(50vh - 240px); */
   top: calc(50vh - 260px);
-  /* position: relative;
-  top: -425px; */
   font-weight: bold;
   color: ${(props) => props.theme.colors.text.secondary};
   box-shadow: 4px 8px 9px 0px ${(props) => props.theme.colors.boxShadow.primary};
@@ -53,7 +41,7 @@ export const BtnVisibleHidden = styled.button`
   }
 `;
 
-export const ContainerGameDialog = styled.dialog<VisibleHiddenBoard>`
+export const ContainerGameDialog = styled.dialog<I.VisibleHiddenBoard>`
   visibility: ${(props) =>
     props.visible === "visible" ? "visible" : "hidden"};
   display: flex;
@@ -111,7 +99,7 @@ export const MessageWinner = styled(TitleModal)`
 `;
 
 export const DrawPlayerAnimation = styled.div`
-  animation-name: ${animationDraw};
+  animation-name: ${A.animationDraw};
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
   transform: scaleX(-1);
@@ -119,7 +107,7 @@ export const DrawPlayerAnimation = styled.div`
 `;
 
 export const WinnerCoinAnimation = styled.div`
-  animation-name: ${animationWinnerCoin};
+  animation-name: ${A.animationWinnerCoin};
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
   transform: scaleX(1);
@@ -127,14 +115,14 @@ export const WinnerCoinAnimation = styled.div`
 `;
 
 export const WinnerTrophyAnimation = styled.div`
-  animation-name: ${animationWinnerTrophy};
+  animation-name: ${A.animationWinnerTrophy};
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
   transform: scaleX(1);
   transform: rotate(0);
 `;
 
-export const DescriptionEndGame = styled.p<PlayerWinnerStyle>`
+export const DescriptionEndGame = styled.p<I.PlayerWinnerStyle>`
   color: ${(props) => (props.winner === "X" ? "red" : "blue")};
   display: flex;
   align-items: center;
@@ -163,7 +151,7 @@ export const GapIcons = styled.div`
   align-items: center;
 `;
 
-export const BtnStart = styled.button<BtnStartTypesStyle>`
+export const BtnStart = styled.button<I.BtnStartTypesStyle>`
   height: auto;
   width: auto;
   display: flex;
@@ -210,14 +198,14 @@ export const BtnStart = styled.button<BtnStartTypesStyle>`
   ${(props) => {
     if (!props.disabledOn)
       return css`
-        animation-name: ${animationStartGame};
+        animation-name: ${A.animationStartGame};
         animation-duration: 1.5s;
         animation-iteration-count: infinite;
       `;
   }}
 `;
 
-export const BtnVsComputer = styled(BtnStart)<PlayerWinnerStyle>`
+export const BtnVsComputer = styled(BtnStart)<I.PlayerWinnerStyle>`
   border: ${(props) =>
     props.adversary === "computer" ? `1px solid ${(props: any) => props.theme.colors.border.primary}` : " "};
   transform: scale(${(props) => (props.adversary === "computer" ? 1.2 : 1)});
@@ -228,7 +216,7 @@ export const BtnVsComputer = styled(BtnStart)<PlayerWinnerStyle>`
   animation-name: none;
 `;
 
-export const BtnMultiPlayers = styled(BtnStart)<PlayerWinnerStyle>`
+export const BtnMultiPlayers = styled(BtnStart)<I.PlayerWinnerStyle>`
   border: ${(props) =>
     props.adversary === "multiPlayers" ? `1px solid ${(props: any) => props.theme.colors.border.primary}` : " "};
   transform: scale(

@@ -1,23 +1,9 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
+import * as A from "../../../helpers/animations";
+import * as I from "../../../helpers/interfaces";
 
-const RotateIconGit = keyframes`
- 0% { transform: rotate(40deg) }
- 10% {  transform: rotate(347deg) }
- 20% {   transform: rotate(17deg) }
- 30% {   transform: rotate(-60deg)) }
- 40% {  transform: rotate(40deg)  }
- 60% {   transform: rotate(-70deg) }
- 80% {   transform: rotate(50deg) }
- 100% {  transform: rotate(-60deg) } 
-`;
-
-interface GoToGitHubStyleTypes {
-  colorDescription: string | null;
-  colorTheme: string | null;
-}
-
-export const GoToGitHubStyle = styled.button<GoToGitHubStyleTypes>`
-  background: #929eaa;
+export const GoToGitHubStyle = styled.button<I.GoToGitHubStyleTypes>`
+  background: ${(props) => props.theme.colors.goToGitHub.background.primary};
   border-radius: 50%;
   height: 65px;
   width: 65px;
@@ -27,15 +13,22 @@ export const GoToGitHubStyle = styled.button<GoToGitHubStyleTypes>`
   cursor: pointer;
   font-style: normal;
   font-weight: bold;
-  color: ${(props) => !props.colorDescription && props.colorTheme === "light" ? "#555" : "rgb(248, 248, 255, 0.7)" };
-  border-color: ${(props) => !props.colorDescription ? "#555" : "rgb(248, 248, 255, 0.7)"};
+  color: ${(props) =>
+    !props.colorDescription && props.colorTheme === "light"
+      ? props.theme.colors.goToGitHub.primary
+      : props.theme.colors.goToGitHub.secondary};
+  border-color: ${(props) =>
+    !props.colorDescription
+      ? props.theme.colors.goToGitHub.primary
+      : props.theme.colors.goToGitHub.secondary};
   font-size: 11px;
   z-index: 101;
-  
 
   :hover {
-    background-color: #b1b6bb;
+    background-color: ${(props) =>
+      props.theme.colors.goToGitHub.background.secondary};
   }
+
   :active {
     opacity: 0.7;
   }
@@ -43,17 +36,17 @@ export const GoToGitHubStyle = styled.button<GoToGitHubStyleTypes>`
 
 export const LinkToGitHub = styled.a`
   text-decoration: none;
- 
 `;
 
 export const ImgGit = styled.img`
   height: 50px;
   width: 50px;
   transform: rotate(-20deg);
-  animation-name: ${RotateIconGit};
+  animation-name: ${A.animationRotateIconGit};
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
   margin-top: 3px;
+
   :hover {
     opacity: 0.7;
   }
@@ -63,9 +56,7 @@ export const TextGitHub = styled.p`
   width: 60px;
   text-align: center;
   position: relative;
-  /* right: 10px; */
   font-weight: bold;
   top: 12px;
-
   line-height: 15px;
 `;

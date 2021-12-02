@@ -1,20 +1,20 @@
 
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import * as S from './styles'
-import { endOfTheGame, boardDefault, onlyGameCharacters, gameCharacters } from '../../helpers/constantes';
-import { TypesGame, TypesHash } from '../../helpers/interfaces';
-import Title from "../atoms/Title";
-import GoToGitHub from '../atoms/GoToGitHub';
-import Board from '../molecules/Board';
-import GameDialog from '../organisms/GameDialog';
-import SelectTheme from '../atoms/SelectTheme'
+import * as C from '../../../helpers/constantes';
+import * as I from "../../../helpers/interfaces";
+import * as S from './styles';
+import Title from "../../atoms/Title";
+import GoToGitHub from '../../atoms/GoToGitHub';
+import Board from '../../molecules/Board';
+import GameDialog from '../../organisms/GameDialog';
+import SelectTheme from '../../atoms/SelectTheme'
 
-const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
+const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
 
   const turningBoardIntoArray = Array(1).fill(board.split(""));
   const [boardCurrent, setBoardCurrent] = useState(turningBoardIntoArray[0]);
-  const [game, setGame] = useState<TypesGame>({
+  const [game, setGame] = useState<I.TypesGame>({
     player: "X",
     statusGame: "Home",
     adversary: null,
@@ -39,8 +39,8 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
 
   const queryUrlParameter = LocationSearch();
   const urlParameter: any = queryUrlParameter.get("board");
-  const howManyCharactersX = !urlParameter?.match(gameCharacters.X)?.length ? 0 : urlParameter?.match(gameCharacters.X)?.length;
-  const howManyCharactersO = !urlParameter?.match(gameCharacters.O)?.length ? 0 : urlParameter?.match(gameCharacters.O)?.length;
+  const howManyCharactersX = !urlParameter?.match(C.gameCharacters.X)?.length ? 0 : urlParameter?.match(C.gameCharacters.X)?.length;
+  const howManyCharactersO = !urlParameter?.match(C.gameCharacters.O)?.length ? 0 : urlParameter?.match(C.gameCharacters.O)?.length;
 
   useEffect(() => {
     if (urlParameter) {
@@ -49,21 +49,21 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
         alert("Something wrong is not right! hehe, you typed a board with more than 9 characters");
         setGame({ ...game, player: "X", winner: null });
         clearHistoryNavigate();
-        return setInitialBoard(boardDefault);
+        return setInitialBoard(C.boardDefault);
       };
 
-      if (onlyGameCharacters.test(urlParameter)) {
+      if (C.onlyGameCharacters.test(urlParameter)) {
         alert("Something wrong is not right! hehe, board only accepts the following characters X space O");
         setGame({ ...game, player: "X", winner: null });
         clearHistoryNavigate();
-        return setInitialBoard(boardDefault);
+        return setInitialBoard(C.boardDefault);
       };
 
       if (howManyCharactersX - howManyCharactersO >= 2 || howManyCharactersO - howManyCharactersX >= 2) {
         alert("Something wrong is not right! hehe, invalid board a player cannot have more than 1 play advantage of his opponent");
         setGame({ ...game, player: "X", winner: null });
         clearHistoryNavigate();
-        return setInitialBoard(boardDefault);
+        return setInitialBoard(C.boardDefault);
       };
 
       if (howManyCharactersX - howManyCharactersO === 1) setGame({ ...game, player: "O", winner: null });
@@ -73,7 +73,7 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
     };
 
     if (!queryUrlParameter.get("board")) {
-      setInitialBoard(boardDefault);
+      setInitialBoard(C.boardDefault);
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -91,7 +91,7 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
   };
 
   const validWinner = () => {
-    endOfTheGame(boardCurrent).forEach((playerAreas) => {
+    C.endOfTheGame(boardCurrent).forEach((playerAreas) => {
       if (playerAreas.every((playerArea) => playerArea === "O"))
         return setGame({ ...game, winner: "O", statusGame: "GameOver", pointsO: game.pointsO + 1, round: game.round + 1 });
 
@@ -166,7 +166,7 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
 
   return (
     <>
-    <SelectTheme statusGame={game.statusGame} />
+      <SelectTheme statusGame={game.statusGame} />
 
       {!game?.statusGame &&
         <S.ContainerPointsRound>
@@ -195,8 +195,6 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
           <S.SpanTurn colorPlayrTurn={game.player}>{game.player}</S.SpanTurn>
         </S.PlayerTurnAnimation>
       </S.PLayerTurn>}
-
-      
     </>
   );
 }

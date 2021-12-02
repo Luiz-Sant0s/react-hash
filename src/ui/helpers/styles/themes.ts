@@ -16,6 +16,14 @@ export const lightTheme = {
     },
      border: {
       primary: "#00000060"
+    },
+    goToGitHub: {
+      primary: "#555",
+      secondary: "rgb(248, 248, 255, 0.7)",
+      background: {
+        primary: "#929eaa",
+        secondary: "#b1b6bb",
+      },
     }
   },
 };
@@ -38,6 +46,14 @@ export const darkTheme = {
     },
     border: {
       primary: "#f8f8ff99"
+    },
+    goToGitHub: {
+      primary: "#555",
+      secondary: "rgb(248, 248, 255, 0.7)",
+      background: {
+        primary: "#929eaa",
+        secondary: "#b1b6bb",
+      },
     }
   },
 };

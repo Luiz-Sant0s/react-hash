@@ -34,3 +34,14 @@ export const animationRound = keyframes`
   40% {  transform: scale(0.7) ;}
   100% {  transform:  scale(1.4);} 
 `;
+
+export const animationRotateIconGit = keyframes`
+ 0% { transform: rotate(40deg) }
+ 10% {  transform: rotate(347deg) }
+ 20% {   transform: rotate(17deg) }
+ 30% {   transform: rotate(-60deg)) }
+ 40% {  transform: rotate(40deg)  }
+ 60% {   transform: rotate(-70deg) }
+ 80% {   transform: rotate(50deg) }
+ 100% {  transform: rotate(-60deg) } 
+`;

@@ -1,10 +1,7 @@
 import styled from "styled-components";
+import * as I from "../../../helpers/interfaces";
 
-interface TypeSelectThemeStyle {
-  statusGame: string | null;
-}
-
-export const SelectThemeStyle = styled.button<TypeSelectThemeStyle>`
+export const SelectThemeStyle = styled.button<I.TypeSelectThemeStyle>`
   position: fixed;
   top: 40px;
   left: 20px;

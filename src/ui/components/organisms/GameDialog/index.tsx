@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import * as S from "./styles";
-import { typesGameDialog } from '../../../helpers/interfaces';
-import { ImageGlobal } from "../../../helpers/constantes";
+import * as C from '../../../helpers/constantes';
+import * as I from "../../../helpers/interfaces";
+import * as S from './styles';
 
-const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, replay, goHome, selectComputer, selectMultiPlayers }) => {
+const GameDialog: React.FC<I.typesGameDialog> = ({ game, startGame, replay, goHome, selectComputer, selectMultiPlayers }) => {
   const [viewBoard, setViewBoard] = useState("visible")
 
   return (
@@ -21,11 +21,11 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, replay, goHome
 
             <S.ContainerBtns>
               <S.BtnVsComputer /* className="nes-btn" */ aria-label="Button selectComputer" type="button" onClick={selectComputer} adversary={game.adversary}>
-                <S.IconButton src={ImageGlobal.VsComputer} alt="IconselectComputer" />
+                <S.IconButton src={C.ImageGlobal.VsComputer} alt="IconselectComputer" />
                 VS COMPUTER
               </S.BtnVsComputer>
               <S.BtnMultiPlayers /* className="nes-btn" */ aria-label="Button selectMultiPlayers" type="button" onClick={selectMultiPlayers} adversary={game.adversary}>
-                <S.IconButton src={ImageGlobal.MultiPlayers} alt="IconselectComputer" />
+                <S.IconButton src={C.ImageGlobal.MultiPlayers} alt="IconselectComputer" />
                 2 PLAYERS
               </S.BtnMultiPlayers>
             </S.ContainerBtns>
@@ -74,7 +74,7 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, replay, goHome
               </S.BtnReplay>
 
               <S.BtnGoHome /* className="nes-btn" */ aria-label="Button GoHome" type="button" onClick={goHome} >
-                <S.IconButton src={ImageGlobal.GoHome} alt="Icon GO HOME" />
+                <S.IconButton src={C.ImageGlobal.GoHome} alt="Icon GO HOME" />
                 GO HOME
               </S.BtnGoHome>
             </S.ContainerBtns>
