@@ -17,4 +17,4 @@ const Board: React.FC<I.TypesBoard> = ({ boardCurrent, onClick }) => (
   </S.BoardStyle>
 );
 
-export default Board;
+export default React.memo(Board);

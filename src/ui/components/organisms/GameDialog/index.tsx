@@ -85,4 +85,4 @@ const GameDialog: React.FC<I.typesGameDialog> = ({ game, startGame, replay, goHo
   );
 };
 
-export default GameDialog;
+export default React.memo(GameDialog);

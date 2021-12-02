@@ -19,4 +19,4 @@ const SelectTheme: React.FC<I.TypesSelectTheme> = ({ statusGame }) => {
   );
 };
 
-export default SelectTheme;
+export default React.memo(SelectTheme);

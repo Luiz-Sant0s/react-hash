@@ -20,4 +20,4 @@ const GoToGitHub: React.FC<I.GoToGitHubTypes> = ({ colorDescription }) => {
   );
 };
 
-export default GoToGitHub;
+export default React.memo(GoToGitHub);

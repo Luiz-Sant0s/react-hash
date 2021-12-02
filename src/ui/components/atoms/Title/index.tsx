@@ -8,4 +8,4 @@ const Title: React.FC<I.TypesTitle> = ({ nameGame }) => (
     </S.TitleStyle>
 );
 
-export default Title;
+export default React.memo(Title);
