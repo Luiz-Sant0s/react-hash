@@ -12,15 +12,16 @@ interface Theme {
       secondary: string,
       ternary: string,
     },
-
     text: {
       primary: string,
       secondary: string,
     },
-
     boxShadow: {
       primary: string,
     },
+    border: {
+      primary: string,
+    }
 }
 }
 

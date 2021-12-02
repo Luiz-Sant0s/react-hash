@@ -37,13 +37,13 @@ export const BtnVisibleHidden = styled.button`
   font-weight: bold;
   color: ${(props) => props.theme.colors.text.primary};
   box-shadow: 4px 8px 9px 0px ${(props) => props.theme.colors.boxShadow.primary};
-  border: solid 2.5px #000000;
+  border: solid 2.5px ${(props) => props.theme.colors.border.primary};
   font-size: 13px;
   padding: 5px;
   background-color: ${(props) => props.theme.colors.background.secondary};
 
   &:hover {
-    border: "1px solid #00000055";
+    border: "1px solid ${(props) => props.theme.colors.border.primary}";
     transform: scale(1.3) rotate(-10deg);
   }
 `;
@@ -67,6 +67,7 @@ export const ContainerGameDialog = styled.dialog<VisibleHiddenBoard>`
   box-shadow: 3px 4px 14px 5px ${(props) => props.theme.colors.boxShadow.primary};
   width: 360px;
   min-height: 440px;
+  border: 3px solid ${(props) => props.theme.colors.border.primary};
 
   @media (max-width: 500px) {
     width: 93.5%;
@@ -97,12 +98,10 @@ export const DescriptionModal = styled(TitleModal)`
 export const MessageWinner = styled(TitleModal)`
   opacity: 0.7;
   margin-bottom: 15px;
-
   display: flex;
   align-items: center;
   gap: 15px;
   flex-direction: column;
-
   max-width: 70%;
 `;
 
@@ -178,7 +177,6 @@ export const BtnStart = styled.button<BtnStartTypesStyle>`
 
   @media (max-width: 1024px) {
     font-size: 0.8rem;
-    border-width: 3px;
     padding: 4px 8px;
   }
 

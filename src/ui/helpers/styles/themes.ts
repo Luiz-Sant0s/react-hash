@@ -14,16 +14,19 @@ export const lightTheme = {
     boxShadow: {
       primary: "#00000065",
     },
+     border: {
+      primary: "#00000060"
+    }
   },
 };
 
 export const darkTheme = {
   name: "dark",
   colors: {
-    octocat: "#ffffff95",
+    octocat: "#ffffff99",
     background: {
       primary: "#50514F",
-      secondary: "#565756",
+      secondary: "#777877",
       ternary: "#f8f8ff25",
     },
     text: {
@@ -33,5 +36,8 @@ export const darkTheme = {
     boxShadow: {
       primary: "#f8f8ff50",
     },
+    border: {
+      primary: "#f8f8ff99"
+    }
   },
 };

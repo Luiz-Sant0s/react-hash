@@ -13,6 +13,7 @@ const RotateIconGit = keyframes`
 
 interface GoToGitHubStyleTypes {
   colorDescription: string | null;
+  colorTheme: string | null;
 }
 
 export const GoToGitHubStyle = styled.button<GoToGitHubStyleTypes>`
@@ -26,7 +27,7 @@ export const GoToGitHubStyle = styled.button<GoToGitHubStyleTypes>`
   cursor: pointer;
   font-style: normal;
   font-weight: bold;
-  color: ${(props) => !props.colorDescription ? "#555" : "rgb(248, 248, 255, 0.7)" };
+  color: ${(props) => !props.colorDescription && props.colorTheme === "light" ? "#555" : "rgb(248, 248, 255, 0.7)" };
   border-color: ${(props) => !props.colorDescription ? "#555" : "rgb(248, 248, 255, 0.7)"};
   font-size: 11px;
   z-index: 101;
@@ -62,9 +63,9 @@ export const TextGitHub = styled.p`
   width: 60px;
   text-align: center;
   position: relative;
-  right: 10px;
+  /* right: 10px; */
   font-weight: bold;
-  top: 10px;
+  top: 12px;
 
   line-height: 15px;
 `;
