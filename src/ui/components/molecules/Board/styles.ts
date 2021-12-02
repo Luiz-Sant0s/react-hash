@@ -62,7 +62,7 @@ export const PlayerArea = styled.li<typesPlayerAresStyle>`
       return css`
         :hover {
           border: 4px solid;
-          box-shadow: 2px 5px 23px 7px #00000065;
+          box-shadow: 2px 5px 23px 7px ${(props) => props.theme.colors.boxShadow.primary};
           transition: all 0.2s ease-in-out;
           transform: scale(1.1);
           background-color: ${(props) => props.theme.colors.background.primary};

@@ -218,7 +218,7 @@ export const BtnStart = styled.button<BtnStartTypesStyle>`
 
 export const BtnVsComputer = styled(BtnStart)<PlayerWinnerStyle>`
   border: ${(props) =>
-    props.adversary === "computer" ? "1px solid #00000055" : " "};
+    props.adversary === "computer" ? `1px solid ${(props: any) => props.theme.colors.border.primary}` : " "};
   transform: scale(${(props) => (props.adversary === "computer" ? 1.2 : 1)});
   opacity: ${(props) => (props.adversary === "computer" ? 0.3 : " ")};
   transition: all 0.2s ease-in-out;
@@ -229,7 +229,7 @@ export const BtnVsComputer = styled(BtnStart)<PlayerWinnerStyle>`
 
 export const BtnMultiPlayers = styled(BtnStart)<PlayerWinnerStyle>`
   border: ${(props) =>
-    props.adversary === "multiPlayers" ? " 1px solid #00000055" : " "};
+    props.adversary === "multiPlayers" ? `1px solid ${(props: any) => props.theme.colors.border.primary}` : " "};
   transform: scale(
     ${(props) => (props.adversary === "multiPlayers" ? 1.2 : 1)}
   );
