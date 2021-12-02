@@ -79,7 +79,7 @@ export const TitleModal = styled.h2`
   margin: 5px;
   font-size: 25px;
   font-weight: bold;
-  color: ${(props) => props.theme.colors.text.primary};
+  color: ${(props) => props.theme.colors.text.secondary};
 
   .nes-octocat {
     /* opacity: 0.9; */
@@ -91,7 +91,7 @@ export const TitleModal = styled.h2`
 
 export const DescriptionModal = styled(TitleModal)`
   font-size: 15px;
-  color: ${(props) => props.theme.colors.text.secondary};
+  color: ${(props) => props.theme.colors.text.primary};
   padding: 0 15px 10px 15px;
 `;
 
@@ -174,6 +174,7 @@ export const BtnStart = styled.button<BtnStartTypesStyle>`
   box-shadow: 4px 8px 9px 0px ${(props) => props.theme.colors.boxShadow.primary};
   font-weight: bold;
   color: ${(props) => props.theme.colors.text.primary};
+  border: 2px solid ${(props) => props.theme.colors.border.primary};
 
   @media (max-width: 1024px) {
     font-size: 0.8rem;
@@ -186,14 +187,14 @@ export const BtnStart = styled.button<BtnStartTypesStyle>`
   }
 
   &:hover {
-    border: "1px solid #00000055";
+    border: "1px solid ${(props) => props.theme.colors.border.primary}";
     transform: scale(1.2);
   }
 
   &:disabled {
     opacity: 0.4;
     cursor: not-allowed;
-    border: "1px solid #00000055";
+    border: "1px solid ${(props) => props.theme.colors.border.primary}";
     transform: scale(1.2);
   }
 

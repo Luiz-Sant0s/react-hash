@@ -6,7 +6,7 @@ export const GameContianer = styled.section`
   height: auto;
   border-radius: 5px;
   font-weight: bold;
-  border: 1px solid #00000077;
+  border: 1px solid ${(props) => props.theme.colors.border.primary};
   background-color: ${(props) => props.theme.colors.background.secondary};
   padding: 15px;
   max-width: 340px;
@@ -56,17 +56,17 @@ export const ContainerPointsRound = styled.aside`
 
 export const Points = styled.p`
   font-size: 13px;
-  color: ${(props) => props.theme.colors.text.secondary};
+  color: ${(props) => props.theme.colors.text.primary};
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 0;
-  letter-spacing: -2.5px;
+  letter-spacing: -2px;
 `;
 
 export const Round = styled(Points)`
   font-size: 16px;
-  color: ${(props) => props.theme.colors.text.primary};
+  color: ${(props) => props.theme.colors.text.secondary};
   display: flex;
   gap: 10px;
 `;
@@ -83,5 +83,6 @@ export const ValuePointsO = styled(ValuePointsX)`
 
 export const ValueRound = styled(ValuePointsX)`
   font-size: 18px;
-  color: ${(props) => props.theme.colors.text.primary};
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.text.secondary};
 `;
