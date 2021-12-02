@@ -21,11 +21,11 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, replay, goHome
 
             <S.ContainerBtns>
               <S.BtnVsComputer /* className="nes-btn" */ aria-label="Button selectComputer" type="button" onClick={selectComputer} adversary={game.adversary}>
-                <S.IconButton src={ImageGlobal.VsComputerNotDescription} alt="IconselectComputer" />
+                <S.IconButton src={ImageGlobal.VsComputer} alt="IconselectComputer" />
                 VS COMPUTER
               </S.BtnVsComputer>
               <S.BtnMultiPlayers /* className="nes-btn" */ aria-label="Button selectMultiPlayers" type="button" onClick={selectMultiPlayers} adversary={game.adversary}>
-                <S.IconButton src={ImageGlobal.MultiPlayersNotDescription} alt="IconselectComputer" />
+                <S.IconButton src={ImageGlobal.MultiPlayers} alt="IconselectComputer" />
                 2 PLAYERS
               </S.BtnMultiPlayers>
             </S.ContainerBtns>
@@ -74,7 +74,7 @@ const GameDialog: React.FC<typesGameDialog> = ({ game, startGame, replay, goHome
               </S.BtnReplay>
 
               <S.BtnGoHome /* className="nes-btn" */ aria-label="Button GoHome" type="button" onClick={goHome} >
-                <S.IconButton src={ImageGlobal.GoHomeNotDescription} alt="Icon StartGame" />
+                <S.IconButton src={ImageGlobal.GoHome} alt="Icon GO HOME" />
                 GO HOME
               </S.BtnGoHome>
             </S.ContainerBtns>

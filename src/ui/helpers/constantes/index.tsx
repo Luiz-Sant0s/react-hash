@@ -24,12 +24,7 @@ export const endOfTheGame = (board: Array<string | []>) => {
 
 export const ImageGlobal = {
     GoToGitHub: `${process.env.PUBLIC_URL}/img/png/go-to-GitHub.png`,
-
-    VsComputerNotDescription: `${process.env.PUBLIC_URL}/img/png/vsComputerNotDescription.png`,
-    MultiPlayersNotDescription: `${process.env.PUBLIC_URL}/img/png/multiPlayersNotDescription.png`,
-    GoHomeNotDescription: `${process.env.PUBLIC_URL}/img/png/goHomeNotDescription.png`,
-
-    VsComputerNotDescriptionSvg: `${process.env.PUBLIC_URL}/img/svg/vsComputerNotDescription.svg`,
-    MultiPlayersNotDescriptionSvg: `${process.env.PUBLIC_URL}/img/svg/multiPlayersNotDescription.svg`,
-    GoHomeNotDescriptionSvg: `${process.env.PUBLIC_URL}/img/svg/goHomeNotDescription.svg`,
+    VsComputer: `${process.env.PUBLIC_URL}/img/png/vsComputer.png`,
+    MultiPlayers: `${process.env.PUBLIC_URL}/img/png/multiPlayers.png`,
+    GoHome: `${process.env.PUBLIC_URL}/img/png/goHome.png`,
 };
