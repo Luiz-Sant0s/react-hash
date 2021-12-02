@@ -8,7 +8,7 @@ import Title from "../atoms/Title";
 import GoToGitHub from '../atoms/GoToGitHub';
 import Board from '../molecules/Board';
 import GameDialog from '../organisms/GameDialog';
-import Button from '../atoms/button'
+import SelectTheme from '../atoms/SelectTheme'
 
 const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
 
@@ -166,7 +166,7 @@ const Hash: React.FC<TypesHash> = ({ board, setInitialBoard }) => {
 
   return (
     <>
-    <Button> aaa theme</Button> 
+    <SelectTheme statusGame={game.statusGame} />
 
       {!game?.statusGame &&
         <S.ContainerPointsRound>

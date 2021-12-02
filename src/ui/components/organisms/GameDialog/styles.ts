@@ -198,6 +198,10 @@ export const BtnStart = styled.button<BtnStartTypesStyle>`
     transform: scale(1.2);
   }
 
+  :focus {
+    outline-style: none;
+  }
+
   ${(props) => {
     if (!props.disabledOn)
       return css`
