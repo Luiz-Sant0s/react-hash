@@ -35,7 +35,7 @@ export const BtnVisibleHidden = styled.button`
   /* position: relative;
   top: -425px; */
   font-weight: bold;
-  color: ${(props) => props.theme.colors.text.primary};
+  color: ${(props) => props.theme.colors.text.secondary};
   box-shadow: 4px 8px 9px 0px ${(props) => props.theme.colors.boxShadow.primary};
   border: solid 2.5px ${(props) => props.theme.colors.border.primary};
   font-size: 13px;
@@ -45,6 +45,10 @@ export const BtnVisibleHidden = styled.button`
   &:hover {
     border: "1px solid ${(props) => props.theme.colors.border.primary}";
     transform: scale(1.3) rotate(-10deg);
+  }
+
+  &:focus {
+    outline-style: none;
   }
 `;
 

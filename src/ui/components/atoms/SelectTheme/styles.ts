@@ -28,7 +28,7 @@ export const SelectThemeStyle = styled.button<TypeSelectThemeStyle>`
  
   @media (max-width: 400px) {
     position: ${(props) => !props.statusGame ? "relative" : "absolute"};
-    top: ${(props) => !props.statusGame ? "5px" : "15px"};
+    top: ${(props) => !props.statusGame ? "2px" : "15px"};
     left: 20px;
   }
 `;
