@@ -35,14 +35,23 @@
 
 <P align="center"><strong> DESKTOP </strong></P>
 
-
 <p align="center">select the game mode, if it is against another player or against the computer and click on start, <strong> use the mouse to choose where the move will be. </strong></p>
 
+<p align="center">Theme <strong>Light</strong></p>
+
 <section align="center">
-<img  width="23%" src="public/img/png/1-desktop.png" />
-<img  width="23%" src="public/img/png/2-desktop.png" />
-<img  width="23%" src="public/img/png/3-desktop.png" />
-<img  width="23%" src="public/img/png/4-desktop.png" />
+<img  width="23%" src="public/img/png/1-light-desktop.png" />
+<img  width="23%" src="public/img/png/2-light-desktop.png" />
+<img  width="23%" src="public/img/png/3-light-desktop.png" />
+<img  width="23%" src="public/img/png/4-light-desktop.png" />
+
+<p align="center">Theme <strong>Dark</strong></p>
+
+<section align="center">
+<img  width="23%" src="public/img/png/1-dark-desktop.png" />
+<img  width="23%" src="public/img/png/2-dark-desktop.png" />
+<img  width="23%" src="public/img/png/3-dark-desktop.png" />
+<img  width="23%" src="public/img/png/4-dark-desktop.png" />
 
 ![gif desktop Hash Game](public/img/gif/hash-desktop.gif)
 
