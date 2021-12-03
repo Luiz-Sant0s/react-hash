@@ -95,7 +95,7 @@ export const MessageWinner = styled(TitleModal)`
   align-items: center;
   gap: 15px;
   flex-direction: column;
-  max-width: 70%;
+  max-width: 75%;
 `;
 
 export const DrawPlayerAnimation = styled.div`
