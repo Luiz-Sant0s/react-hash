@@ -20,22 +20,32 @@
 
 <P align="center"><strong> MOBILE </strong></P>
 
+<p align="center">select the game mode, if it is against another player or against the computer and <strong> click on start, click on where the move will be. </strong></p><br/>
 
-<p align="center">select the game mode, if it is against another player or against the computer and <strong> click on start, click on where the move will be. </strong></p>
+<p align="center">Theme <strong>Light</strong></p>
 
 <section align="center">
-<img  width="23%" src="public/img/png/1-mobile.png" />
-<img  width="23%" src="public/img/png/2-mobile.png" />
-<img  width="23%" src="public/img/png/3-mobile.png" />
-<img  width="23%" src="public/img/png/4-mobile.png" />
+<img  width="23%" src="public/img/png/1-light-mobile.png" />
+<img  width="23%" src="public/img/png/2-light-mobile.png" />
+<img  width="23%" src="public/img/png/3-light-mobile.png" />
+<img  width="23%" src="public/img/png/4-light-mobile.png" />
+
+<p align="center">Theme <strong>Dark</strong></p>
+
+<img  width="23%" src="public/img/png/1-dark-mobile.png" />
+<img  width="23%" src="public/img/png/2-dark-mobile.png" />
+<img  width="23%" src="public/img/png/3-dark-mobile.png" />
+<img  width="23%" src="public/img/png/4-dark-mobile.png" />
+
+<p align="center"><strong>Demonstration Game Mobile</strong></p>
 
 ![gif mobile Hash Game](public/img/gif/hash-mobile.gif)
 
-</section>
+</section><br/>
 
 <P align="center"><strong> DESKTOP </strong></P>
 
-<p align="center">select the game mode, if it is against another player or against the computer and click on start, <strong> use the mouse to choose where the move will be. </strong></p>
+<p align="center">select the game mode, if it is against another player or against the computer and click on start, <strong> use the mouse to choose where the move will be. </strong></p><br/>
 
 <p align="center">Theme <strong>Light</strong></p>
 
@@ -47,15 +57,16 @@
 
 <p align="center">Theme <strong>Dark</strong></p>
 
-<section align="center">
 <img  width="23%" src="public/img/png/1-dark-desktop.png" />
 <img  width="23%" src="public/img/png/2-dark-desktop.png" />
 <img  width="23%" src="public/img/png/3-dark-desktop.png" />
 <img  width="23%" src="public/img/png/4-dark-desktop.png" />
 
+<p align="center"><strong>Demonstration Game Desktop</strong></p>
+
 ![gif desktop Hash Game](public/img/gif/hash-desktop.gif)
 
-</section>
+</section> 
 
 <br/>
 
