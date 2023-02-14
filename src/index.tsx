@@ -18,7 +18,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Hash board={initialBoard} setInitialBoard={setInitialBoard} />} />
           <Route path={`/react-hash/`} element={<Hash board={initialBoard} setInitialBoard={setInitialBoard} />} />
-          {/*rota /react-hash/ foi definida por causa do git, onde o projeto ta hospedado! */}
+          {/*route /react-hash/ was defined because of git, where the project is hosted! */}
           <Route path='*' element={<h1>URL NAO EXISTE!</h1>} />
         </Routes>
       </Router>
