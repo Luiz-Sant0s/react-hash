@@ -1,5 +1,5 @@
 
-export const boardDefault = "         ";
+export const boardDefaultString = "         ";
 
 export const onlyGameCharacters = /[^o x]/ig;
 
@@ -26,5 +26,6 @@ export const ImageGlobal = {
     GoToGitHub: `${process.env.PUBLIC_URL}/img/png/go-to-GitHub.png`,
     VsComputer: `${process.env.PUBLIC_URL}/img/png/vsComputer.png`,
     MultiPlayers: `${process.env.PUBLIC_URL}/img/png/multiPlayers.png`,
+    ResetGame: `${process.env.PUBLIC_URL}/img/png/resetGame.png`,
     GoHome: `${process.env.PUBLIC_URL}/img/png/goHome.png`,
 };

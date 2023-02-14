@@ -14,15 +14,20 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
 
   const turningBoardIntoArray = Array(1).fill(board.split(""));
   const [boardCurrent, setBoardCurrent] = useState(turningBoardIntoArray[0]);
-  const [game, setGame] = useState<I.TypesGame>({
+
+  const gameDefault = {
     player: "X",
     statusGame: "Home",
     adversary: null,
+    difficulty: null,
+    openDifficultyModal: false,
     winner: null,
     pointsX: 0,
     round: 1,
     pointsO: 0,
-  });
+  }
+
+  const [game, setGame] = useState<I.TypesGame>(gameDefault);
 
   const historyNavigate = useNavigate();
 
@@ -54,21 +59,21 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
         alert("Something wrong is not right! hehe, you typed a board with more than 9 characters");
         setGame({ ...game, player: "X", winner: null });
         clearHistoryNavigate();
-        return setInitialBoard(C.boardDefault);
+        return setInitialBoard(C.boardDefaultString);
       };
 
       if (C.onlyGameCharacters.test(urlParameter)) {
         alert("Something wrong is not right! hehe, board only accepts the following characters X space O");
         setGame({ ...game, player: "X", winner: null });
         clearHistoryNavigate();
-        return setInitialBoard(C.boardDefault);
+        return setInitialBoard(C.boardDefaultString);
       };
 
       if (howManyCharactersX - howManyCharactersO >= 2 || howManyCharactersO - howManyCharactersX >= 2) {
         alert("Something wrong is not right! hehe, invalid board a player cannot have more than 1 play advantage of his opponent");
         setGame({ ...game, player: "X", winner: null });
         clearHistoryNavigate();
-        return setInitialBoard(C.boardDefault);
+        return setInitialBoard(C.boardDefaultString);
       };
 
       if (howManyCharactersX - howManyCharactersO === 1) setGame({ ...game, player: "O", winner: null });
@@ -78,7 +83,7 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
     };
 
     if (!queryUrlParameter.get("board")) {
-      setInitialBoard(C.boardDefault);
+      setInitialBoard(C.boardDefaultString);
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -116,7 +121,8 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
 
     if (game?.adversary === "computer") {
 
-      if (game.player === "O") {
+
+      if (game.player === "O" && game.difficulty === "Easy") {
         let emptySeatsOnBoard = [];
         let emptyArea = boardCurrent.indexOf(" ");
 
@@ -135,7 +141,6 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
 
         return setGame({ ...game, player: "X" });
       };
-      
     };
 
     historyNavigate({
@@ -162,14 +167,34 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
     setGame({ ...game, player: "X", winner: null, statusGame: null, pointsX: 0, round: 1, pointsO: 0 });
   };
 
+  const resetGame = () => {
+    setGame(gameDefault)
+  }
+
+  const openOptionsDifficulty = () => {
+    setGame({ ...game, openDifficultyModal: true })
+  }
+
+  const selectDifficulty = (difficulty: string) => {
+    setGame({ ...game, difficulty , openDifficultyModal: false })
+  }
+
   const replay = () => {
     setBoardCurrent(turningBoardIntoArray[0]);
     setGame({ ...game, player: game.round % 2 === 0 ? "O" : "X", winner: null, statusGame: null });
   };
 
   const goHome = () => {
-    setGame({ ...game, statusGame: "Home", adversary: null, winner: null, });
+    setGame({ ...game, statusGame: "Home", winner: null, });
   };
+
+  const selectComputer = () => {
+    setGame({ ...game, adversary: "computer", openDifficultyModal: true })
+  }
+
+  const selectMultiPlayers = () => {
+    setGame({ ...game, adversary: "multiPlayers", difficulty: null })
+  }
 
   return (
     <>
@@ -189,10 +214,14 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
         <GameDialog
           game={game}
           startGame={startGame}
+          resetGame={resetGame}
+          continueGame={replay}
+          openOptionsDifficulty={openOptionsDifficulty}
+          selectDifficulty={selectDifficulty}
           replay={replay}
           goHome={goHome}
-          selectComputer={() => setGame({ ...game, adversary: "computer" })}
-          selectMultiPlayers={() => setGame({ ...game, adversary: "multiPlayers" })}
+          selectComputer={selectComputer}
+          selectMultiPlayers={selectMultiPlayers}
         />
 
         <GoToGitHub colorDescription={game?.statusGame} />

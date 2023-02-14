@@ -21,6 +21,8 @@ export interface TypesGame {
   player: string;
   statusGame: string | null;
   adversary: null | string;
+  openDifficultyModal: boolean
+  difficulty: null | string;
   winner: null | string;
   pointsX: number,
   round: number,
@@ -30,6 +32,10 @@ export interface TypesGame {
 export interface typesGameDialog {
   game: TypesGame;
   startGame: () => void;
+  resetGame: () => void;
+  continueGame: () => void;
+  openOptionsDifficulty: () => void;
+  selectDifficulty: (arg: string) => void;
   replay: () => void;
   goHome: () => void;
   selectComputer: () => void;

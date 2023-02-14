@@ -205,7 +205,31 @@ export const BtnStart = styled.button<I.BtnStartTypesStyle>`
   }}
 `;
 
-export const BtnVsComputer = styled(BtnStart)<I.PlayerWinnerStyle>`
+export const ContainerBtnComputer = styled.div`
+  display: flex;
+`
+
+export const BtnSelectDifficults = styled.button`
+  position: absolute;
+  width: 125px;
+  padding: 0px;
+  zIndex: 999;
+  left: -1px;
+  margin-top: -35px;
+  opacity: 0.7;
+  cursor: "pointer";
+
+  &:focus {
+    outline-style: none;
+  }
+
+  &:active {
+    opacity: 0.2;
+    cursor: wait;
+  }
+`
+
+export const BtnVsComputer = styled(BtnStart) <I.PlayerWinnerStyle>`
   border: ${(props) =>
     props.adversary === "computer" ? `1px solid ${(props: any) => props.theme.colors.border.primary}` : " "};
   transform: scale(${(props) => (props.adversary === "computer" ? 1.2 : 1)});
@@ -216,7 +240,7 @@ export const BtnVsComputer = styled(BtnStart)<I.PlayerWinnerStyle>`
   animation-name: none;
 `;
 
-export const BtnMultiPlayers = styled(BtnStart)<I.PlayerWinnerStyle>`
+export const BtnMultiPlayers = styled(BtnStart) <I.PlayerWinnerStyle>`
   border: ${(props) =>
     props.adversary === "multiPlayers" ? `1px solid ${(props: any) => props.theme.colors.border.primary}` : " "};
   transform: scale(
@@ -229,6 +253,15 @@ export const BtnMultiPlayers = styled(BtnStart)<I.PlayerWinnerStyle>`
   animation-name: none;
 `;
 
+export const BtnReset = styled(BtnStart)`
+  animation-name: none;
+  padding: 8px;
+`;
+
+export const BtnContinue = styled(BtnStart)`
+  padding: 8px;
+`;
+
 export const BtnReplay = styled(BtnStart)`
   animation-name: none;
   padding: 8px;
@@ -237,3 +270,33 @@ export const BtnReplay = styled(BtnStart)`
 export const BtnGoHome = styled(BtnStart)`
   animation-name: none;
 `;
+
+
+
+export const ModalSelectDifficulty = styled.dialog`
+  z-index: 999;
+  top: 0; 
+  width: 100%;
+  height: 100%
+`
+export const FormModalSelectDifficulty = styled.form`
+  display: block;
+`
+
+export const TittleModalSelectDifficulty = styled.h2`
+  font-size: 40px;
+`
+
+export const ParagraphyModalSelectDifficulty = styled.p`
+  display: block;
+`
+
+export const MenuModalSelectDifficulty = styled.menu`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`
+
+export const BtnSelectDifficultyModal = styled.button`
+  display: block; 
+`

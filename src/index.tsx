@@ -8,7 +8,7 @@ import * as C from "./ui/helpers/constantes";
 import Hash from './ui/components/templates/Hash';
 
 const App = () => {
-  const [initialBoard, setInitialBoard] = useState(C.boardDefault);
+  const [initialBoard, setInitialBoard] = useState(C.boardDefaultString);
 
   return (
     <SelectThemeProvider>
