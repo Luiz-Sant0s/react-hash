@@ -2,9 +2,9 @@ import React from 'react';
 import * as I from "../../../helpers/interfaces";
 import * as S from './styles';
 
-const Title: React.FC<I.TypesTitle> = ({ nameGame }) => (
+const Title: React.FC<I.TypesTitle> = ({ gameName }) => (
     <S.TitleStyle>
-        {nameGame}
+        {gameName}
     </S.TitleStyle>
 );
 

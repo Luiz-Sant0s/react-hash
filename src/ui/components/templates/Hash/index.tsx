@@ -23,6 +23,7 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
     round: 1,
     pointsO: 0,
   });
+
   const historyNavigate = useNavigate();
 
   const clearHistoryNavigate = () => {
@@ -38,9 +39,13 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
   };
 
   const queryUrlParameter = LocationSearch();
-  const urlParameter: any = queryUrlParameter.get("board");
-  const howManyCharactersX = !urlParameter?.match(C.gameCharacters.X)?.length ? 0 : urlParameter?.match(C.gameCharacters.X)?.length;
-  const howManyCharactersO = !urlParameter?.match(C.gameCharacters.O)?.length ? 0 : urlParameter?.match(C.gameCharacters.O)?.length;
+  const urlParameter = queryUrlParameter?.get("board");
+
+  const urlParameterX = urlParameter?.match(C.gameCharacters.X)?.length
+  const urlParameterO = urlParameter?.match(C.gameCharacters.O)?.length
+
+  const howManyCharactersX = !urlParameterX ? 0 : urlParameterX;
+  const howManyCharactersO = !urlParameterO ? 0 : urlParameterO;
 
   useEffect(() => {
     if (urlParameter) {
@@ -110,6 +115,7 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
     validWinner();
 
     if (game?.adversary === "computer") {
+
       if (game.player === "O") {
         let emptySeatsOnBoard = [];
         let emptyArea = boardCurrent.indexOf(" ");
@@ -129,6 +135,7 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
 
         return setGame({ ...game, player: "X" });
       };
+      
     };
 
     historyNavigate({
@@ -175,7 +182,7 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
           <S.Points>Points O<S.ValuePointsO>{game.pointsO}</S.ValuePointsO></S.Points>
         </S.ContainerPointsRound>}
       <S.GameContianer>
-        <Title nameGame="Hash Game" />
+        <Title gameName="Hash Game" />
 
         <Board boardCurrent={boardCurrent} onClick={fillTheAreaWithThePlayer} />
 

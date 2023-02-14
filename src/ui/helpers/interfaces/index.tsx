@@ -4,7 +4,7 @@ export interface TypesHash {
 }
 
 export interface TypesTitle {
-  nameGame: string;
+  gameName: string;
 };
 
 export interface TypesBoard {
