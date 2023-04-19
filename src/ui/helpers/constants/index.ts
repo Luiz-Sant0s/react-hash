@@ -1,6 +1,18 @@
 
 export const boardDefaultString = "         ";
 
+export const gameDefault = {
+    player: "X",
+    statusGame: "Home",
+    adversary: "",
+    difficulty: "",
+    openDifficultyModal: false,
+    winner: "",
+    pointsX: 0,
+    round: 1,
+    pointsO: 0,
+}
+
 export const onlyGameCharacters = /[^o x]/ig;
 
 export const gameCharacters = {

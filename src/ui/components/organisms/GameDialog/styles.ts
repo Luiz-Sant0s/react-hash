@@ -1,9 +1,7 @@
 import styled, { css } from "styled-components";
-import * as A from "../../../helpers/animations";
-import * as I from "../../../helpers/interfaces";
+import * as A from "ui/helpers/animations";
 
-
-export const Background = styled.div<I.OpenDialogTypeStyle>`
+export const Background = styled.div<IOpenDialogStyles>`
   display: ${(props) => (props.open ? "flex" : "none")};
 
   ::before {
@@ -41,7 +39,7 @@ export const BtnVisibleHidden = styled.button`
   }
 `;
 
-export const ContainerGameDialog = styled.dialog<I.VisibleHiddenBoard>`
+export const ContainerGameDialog = styled.dialog<IVisibleHiddenBoardStyles>`
   visibility: ${(props) =>
     props.visible === "visible" ? "visible" : "hidden"};
   display: flex;
@@ -122,7 +120,7 @@ export const WinnerTrophyAnimation = styled.div`
   transform: rotate(0);
 `;
 
-export const DescriptionEndGame = styled.p<I.PlayerWinnerStyle>`
+export const DescriptionEndGame = styled.p<IPlayerWinnerStyles>`
   color: ${(props) => (props.winner === "X" ? "red" : "blue")};
   display: flex;
   align-items: center;
@@ -151,7 +149,7 @@ export const GapIcons = styled.div`
   align-items: center;
 `;
 
-export const BtnStart = styled.button<I.BtnStartTypesStyle>`
+export const BtnStart = styled.button<IBtnStartStyles>`
   height: auto;
   width: auto;
   display: flex;
@@ -229,7 +227,7 @@ export const BtnSelectDifficults = styled.button`
   }
 `
 
-export const BtnVsComputer = styled(BtnStart) <I.PlayerWinnerStyle>`
+export const BtnVsComputer = styled(BtnStart) <IPlayerWinnerStyles>`
   border: ${(props) =>
     props.adversary === "computer" ? `1px solid ${(props: any) => props.theme.colors.border.primary}` : " "};
   transform: scale(${(props) => (props.adversary === "computer" ? 1.2 : 1)});
@@ -240,7 +238,7 @@ export const BtnVsComputer = styled(BtnStart) <I.PlayerWinnerStyle>`
   animation-name: none;
 `;
 
-export const BtnMultiPlayers = styled(BtnStart) <I.PlayerWinnerStyle>`
+export const BtnMultiPlayers = styled(BtnStart) <IPlayerWinnerStyles>`
   border: ${(props) =>
     props.adversary === "multiPlayers" ? `1px solid ${(props: any) => props.theme.colors.border.primary}` : " "};
   transform: scale(

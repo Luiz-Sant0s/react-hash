@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import * as I from "../../../helpers/interfaces";
 
 export const BoardStyle = styled.ul`
   display: grid;
@@ -8,7 +7,7 @@ export const BoardStyle = styled.ul`
   grid-template-rows: repeat(3, 100px);
 `;
 
-export const PlayerArea = styled.li<I.typesPlayerAresStyle>`
+export const PlayerArea = styled.li<IPlayerAresStyles>`
   background-color: ${(props) => props.theme.colors.background.secondary};
   display: grid;
   align-items: center;

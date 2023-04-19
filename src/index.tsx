@@ -4,7 +4,7 @@ import "nes.css/css/nes.min.css";
 import GlobalStyle from './ui/helpers/styles/global';
 import { SelectThemeProvider } from './ui/helpers/hooks/theme';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import * as C from "./ui/helpers/constantes";
+import * as C from "./ui/helpers/constants";
 import Hash from './ui/components/templates/Hash';
 
 const App = () => {

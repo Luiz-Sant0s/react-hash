@@ -1,8 +1,7 @@
 
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import * as C from '../../../helpers/constantes';
-import * as I from "../../../helpers/interfaces";
+import * as C from 'ui/helpers/constants';
 import * as S from './styles';
 import Title from "../../atoms/Title";
 import GoToGitHub from '../../atoms/GoToGitHub';
@@ -10,24 +9,12 @@ import Board from '../../molecules/Board';
 import GameDialog from '../../organisms/GameDialog';
 import SelectTheme from '../../atoms/SelectTheme'
 
-const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
+const Hash: React.FC<IHash> = ({ board, setInitialBoard }) => {
 
   const turningBoardIntoArray = Array(1).fill(board.split(""));
   const [boardCurrent, setBoardCurrent] = useState(turningBoardIntoArray[0]);
 
-  const gameDefault = {
-    player: "X",
-    statusGame: "Home",
-    adversary: null,
-    difficulty: null,
-    openDifficultyModal: false,
-    winner: null,
-    pointsX: 0,
-    round: 1,
-    pointsO: 0,
-  }
-
-  const [game, setGame] = useState<I.TypesGame>(gameDefault);
+  const [game, setGame] = useState<IGame>(C.gameDefault);
 
   const historyNavigate = useNavigate();
 
@@ -57,27 +44,27 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
 
       if (urlParameter.length !== 9) {
         alert("Something wrong is not right! hehe, you typed a board with more than 9 characters");
-        setGame({ ...game, player: "X", winner: null });
+        setGame({ ...game, player: "X", winner: "" });
         clearHistoryNavigate();
         return setInitialBoard(C.boardDefaultString);
       };
 
       if (C.onlyGameCharacters.test(urlParameter)) {
         alert("Something wrong is not right! hehe, board only accepts the following characters X space O");
-        setGame({ ...game, player: "X", winner: null });
+        setGame({ ...game, player: "X", winner: "" });
         clearHistoryNavigate();
         return setInitialBoard(C.boardDefaultString);
       };
 
       if (howManyCharactersX - howManyCharactersO >= 2 || howManyCharactersO - howManyCharactersX >= 2) {
         alert("Something wrong is not right! hehe, invalid board a player cannot have more than 1 play advantage of his opponent");
-        setGame({ ...game, player: "X", winner: null });
+        setGame({ ...game, player: "X", winner: "" });
         clearHistoryNavigate();
         return setInitialBoard(C.boardDefaultString);
       };
 
-      if (howManyCharactersX - howManyCharactersO === 1) setGame({ ...game, player: "O", winner: null });
-      if (howManyCharactersO - howManyCharactersX === 1) setGame({ ...game, player: "X", winner: null });
+      if (howManyCharactersX - howManyCharactersO === 1) setGame({ ...game, player: "O", winner: "" });
+      if (howManyCharactersO - howManyCharactersX === 1) setGame({ ...game, player: "X", winner: "" });
 
       setInitialBoard(urlParameter?.toUpperCase());
     };
@@ -90,8 +77,8 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
   }, [urlParameter]);
 
   const fillTheAreaWithThePlayer = (index: number) => {
-    if (boardCurrent[index] !== " ") return null;
-    if (game.winner) return null;
+    if (boardCurrent[index] !== " ") return "";
+    if (game.winner) return "";
 
     setBoardCurrent(
       boardCurrent.map((playerArea: string, area: number) => (area === index ? game.player : playerArea))
@@ -164,11 +151,11 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
 
   const startGame = () => {
     setBoardCurrent(turningBoardIntoArray[0]);
-    setGame({ ...game, player: "X", winner: null, statusGame: null, pointsX: 0, round: 1, pointsO: 0 });
+    setGame({ ...game, player: "X", winner: "", statusGame: "", pointsX: 0, round: 1, pointsO: 0 });
   };
 
   const resetGame = () => {
-    setGame(gameDefault)
+    setGame(C.gameDefault)
   }
 
   const openOptionsDifficulty = () => {
@@ -176,16 +163,16 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
   }
 
   const selectDifficulty = (difficulty: string) => {
-    setGame({ ...game, difficulty , openDifficultyModal: false })
+    setGame({ ...game, difficulty, openDifficultyModal: false })
   }
 
   const replay = () => {
     setBoardCurrent(turningBoardIntoArray[0]);
-    setGame({ ...game, player: game.round % 2 === 0 ? "O" : "X", winner: null, statusGame: null });
+    setGame({ ...game, player: game.round % 2 === 0 ? "O" : "X", winner: "", statusGame: "" });
   };
 
   const goHome = () => {
-    setGame({ ...game, statusGame: "Home", winner: null, });
+    setGame({ ...game, statusGame: "Home", winner: "", });
   };
 
   const selectComputer = () => {
@@ -193,7 +180,7 @@ const Hash: React.FC<I.TypesHash> = ({ board, setInitialBoard }) => {
   }
 
   const selectMultiPlayers = () => {
-    setGame({ ...game, adversary: "multiPlayers", difficulty: null })
+    setGame({ ...game, adversary: "multiPlayers", difficulty: "" })
   }
 
   return (

@@ -1,9 +1,8 @@
 import React from 'react';
-import { useTheme } from '../../../helpers/hooks/theme';
-import * as I from "../../../helpers/interfaces";
+import { useTheme } from 'ui/helpers/hooks/theme';
 import * as S from './styles';
 
-const SelectTheme: React.FC<I.TypesSelectTheme> = ({ statusGame }) => {
+const SelectTheme: React.FC<ISelectTheme> = ({ statusGame }) => {
   const { toggleTheme, theme } = useTheme();
 
   return (

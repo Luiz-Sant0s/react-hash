@@ -1,41 +1,11 @@
 import React, { createContext, useContext } from 'react';
-import { ThemeProvider, DefaultTheme } from 'styled-components';
+import { ThemeProvider, DefaultTheme, ITheme } from 'styled-components';
 import { lightTheme, darkTheme } from '../styles/themes';
 import usePersistedTheme from './usePersistedTheme';
 
-interface Theme {
-  name: string;
-  colors: {
-    octocat: string,
-    background: {
-      primary: string,
-      secondary: string,
-      ternary: string,
-    },
-    text: {
-      primary: string,
-      secondary: string,
-    },
-    boxShadow: {
-      primary: string,
-    },
-    border: {
-      primary: string,
-    },
-    goToGitHub: {
-      primary: string,
-      secondary: string,
-      background: {
-        primary: string,
-        secondary: string,
-      }
-    }
-}
-}
-
 interface ThemeContextData {
   toggleTheme(): void;
-  theme: Theme;
+  theme: ITheme;
 }
 
 const ThemeContext = createContext<ThemeContextData>({} as ThemeContextData);

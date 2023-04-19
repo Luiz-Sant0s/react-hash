@@ -1,10 +1,9 @@
 import React from "react";
-import * as C from '../../../helpers/constantes';
-import * as I from "../../../helpers/interfaces";
+import * as C from 'ui/helpers/constants';
 import * as S from './styles';
-import { useTheme } from '../../../helpers/hooks/theme';
+import { useTheme } from 'ui/helpers/hooks/theme';
 
-const GoToGitHub: React.FC<I.GoToGitHubTypes> = ({ colorDescription }) => {
+const GoToGitHub: React.FC<IGoToGitHub> = ({ colorDescription }) => {
   const { theme } = useTheme();
 
   return (

@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import * as A from "../../../helpers/animations";
-import * as I from "../../../helpers/interfaces";
+import * as A from "ui/helpers/animations";
 
 export const GameContianer = styled.section`
   height: auto;
@@ -42,7 +41,7 @@ export const RoundAnimation = styled.div`
   transform: scale(1.4);
 `;
 
-export const SpanTurn = styled.span<I.HashTypesStyle>`
+export const SpanTurn = styled.span<IHashStyles>`
   font-size: 22px;
   color: ${(props) => (props.colorPlayrTurn === "X" ? "red" : "blue")};
 `;

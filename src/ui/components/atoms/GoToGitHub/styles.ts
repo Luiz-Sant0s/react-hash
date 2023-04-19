@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import * as A from "../../../helpers/animations";
-import * as I from "../../../helpers/interfaces";
+import * as A from "ui/helpers/animations";
 
-export const GoToGitHubStyle = styled.button<I.GoToGitHubStyleTypes>`
+export const GoToGitHubStyle = styled.button<IGoToGitHubStyles>`
   background: ${(props) => props.theme.colors.goToGitHub.background.primary};
   border-radius: 50%;
   height: 65px;
@@ -26,7 +25,7 @@ export const GoToGitHubStyle = styled.button<I.GoToGitHubStyleTypes>`
 
   :hover {
     background-color: ${(props) =>
-      props.theme.colors.goToGitHub.background.secondary};
+    props.theme.colors.goToGitHub.background.secondary};
   }
 
   :active {

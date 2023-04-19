@@ -95,7 +95,7 @@ made with **NPM**
 
 [![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/docs/)
 <br/>
-the project was all typed with **Typescript**
+the project was all typed with **Icript**
 <br/>
 <br/>
 

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import * as C from '../../../helpers/constantes';
-import * as I from "../../../helpers/interfaces";
+import * as C from 'ui/helpers/constants';
 import * as S from './styles';
 
-const GameDialog: React.FC<I.typesGameDialog> = ({
+const GameDialog: React.FC<IGameDialog> = ({
   game,
   startGame,
   resetGame,
@@ -17,7 +16,7 @@ const GameDialog: React.FC<I.typesGameDialog> = ({
   const [viewBoard, setViewBoard] = useState("visible")
 
   return (
-    <S.Background open={game?.winner || game?.statusGame} >
+    <S.Background open={game?.winner || game?.statusGame}>
 
       {viewBoard === "visible" && game?.statusGame === "GameOver" &&
         <S.BtnVisibleHidden
@@ -47,20 +46,24 @@ const GameDialog: React.FC<I.typesGameDialog> = ({
               <S.ContainerBtnComputer>
 
                 {game.difficulty &&
-                  <S.BtnSelectDifficults className="nes-balloon from-right"
+                  <S.BtnSelectDifficults
+                    className="nes-balloon from-right"
                     onClick={() => openOptionsDifficulty()}
                   >
                     {game.difficulty}
                   </S.BtnSelectDifficults>
                 }
-                
-                <S.BtnVsComputer aria-label="Button selectComputer" type="button" onClick={selectComputer} adversary={game.adversary} disabled={game.adversary === "computer"}>
+
+                <S.BtnVsComputer
+                  aria-label="Button selectComputer"
+                  type="button"
+                  onClick={selectComputer}
+                  adversary={game.adversary}
+                  disabled={game.adversary === "computer"}>
                   <S.IconButton src={C.ImageGlobal.VsComputer} alt="IconselectComputer" />
                   VS COMPUTER
                 </S.BtnVsComputer>
-
               </S.ContainerBtnComputer>
-
 
               <S.ModalSelectDifficulty className="nes-dialog" open={game.openDifficultyModal} >
                 <S.FormModalSelectDifficulty method="dialog">
@@ -109,7 +112,10 @@ const GameDialog: React.FC<I.typesGameDialog> = ({
 
             <S.ContainerBtns>
               {game.round === 1 ?
-                <S.BtnStart disabledOn={!game?.adversary} aria-label="Button StartGame" disabled={!game.adversary} type="button" onClick={startGame}>
+                <S.BtnStart
+                  disabledOn={!game?.adversary}
+                  aria-label="Button StartGame"
+                  disabled={!game.adversary} type="button" onClick={startGame}>
                   <i className="snes-jp-logo"></i>
                   START
                 </S.BtnStart>
@@ -121,11 +127,16 @@ const GameDialog: React.FC<I.typesGameDialog> = ({
                     disabled={!game.adversary}
                     type="button"
                     onClick={resetGame}>
-                    <S.IconButton className="nes-avatar is-rounded is-large" src={C.ImageGlobal.ResetGame} style={{ imageRendering: "pixelated" }} />
+                    <S.IconButton
+                      className="nes-avatar is-rounded is-large"
+                      src={C.ImageGlobal.ResetGame} style={{ imageRendering: "pixelated" }} />
                     RESET
                   </S.BtnReset>
 
-                  <S.BtnContinue aria-label="Button CONTINUE" disabled={!game.adversary} type="button" onClick={continueGame}>
+                  <S.BtnContinue
+                    aria-label="Button CONTINUE"
+                    disabled={!game.adversary}
+                    type="button" onClick={continueGame}>
                     <i className="nes-ash"></i>
                     CONTINUE
                   </S.BtnContinue>
