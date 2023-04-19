@@ -10,10 +10,12 @@ export const GameContianer = styled.section`
   padding: 15px;
   max-width: 340px;
   box-shadow: 3px 4px 14px 5px  ${(props) => props.theme.colors.boxShadow.primary};
+  margin: 50% auto;
 
   @media (max-width: 400px) {
     width: 95%;
-    margin: auto;
+    margin: 38% auto;
+ 
   }
 `;
 
